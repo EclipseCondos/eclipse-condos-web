@@ -94,3 +94,21 @@ pids/
 *.pid
 *.seed
 *.pid.lock
+
+# Assets and media files (large files)
+# Uncomment lines below to ignore large media files
+# /apps/frontend/public/videos/*.mp4
+# /apps/frontend/public/videos/*.mov
+# /apps/frontend/public/videos/*.avi
+# /apps/frontend/public/images/**/*.psd
+# /apps/frontend/public/images/**/*.ai
+# /apps/frontend/public/images/temp/
+
+# Large assets (>10MB)
+# Add specific large files here when needed
+# /apps/frontend/public/videos/large-tour.mp4
+
+# Temporary assets folder
+/apps/frontend/public/temp/
+/apps/frontend/public/images/temp/
+/apps/frontend/public/videos/temp/
