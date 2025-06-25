@@ -7,6 +7,7 @@ logs/
 npm-debug.log*
 
 # Dependency directories
+/Docs
 /node_modules
 /apps/frontend/node_modules
 /libs/**/node_modules
