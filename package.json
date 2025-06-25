@@ -1,5 +1,29 @@
 {
+  "name": "eclipse-condos-web",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "build": "cd apps/frontend && next build",
+    "start": "cd apps/frontend && next start",
+    "lint": "cd apps/frontend && next lint",
+    "dev:backend": "cd apps/backend && php artisan serve",
+    "dev:frontend": "cd apps/frontend && next dev",
+    "setup": "npm install"
+  },
   "dependencies": {
-    "next": "^15.3.4"
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.3.0",
+    "concurrently": "^8.2.0"
   }
 }
