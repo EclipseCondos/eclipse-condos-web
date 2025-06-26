@@ -29,7 +29,7 @@ const Home = () => {
                 {/* Logo con texto Eclipse Condos */}
                 <div className={styles.homeLogoContainer}>
                     <img 
-                        src="/icons/Eclipse Condos logo (black) .png" 
+                        src="/images/logo/Eclipse Condos logo (black) .png" 
                         alt="Eclipse Condos Logo" 
                         className={styles.homeLogo}
                     />
@@ -43,13 +43,13 @@ const Home = () => {
                 {/* Iconos decorativos pequeños */}
                 <div className={styles.homeDecorativeIcons}>
                     <img 
-                        src="/icons/Eclipse Condos Icon (white).png" 
+                        src="/images/logo/Eclipse Condos Icon (white).png" 
                         alt="Eclipse Condos" 
                         className={styles.homeDecorativeIcon}
                     />
                     <div className={styles.homeDecorativeLine}></div>
                     <img 
-                        src="/icons/Eclipse Condos Icon (white).png" 
+                        src="/images/logo/Eclipse Condos Icon (white).png" 
                         alt="Eclipse Condos" 
                         className={styles.homeDecorativeIcon}
                     />
