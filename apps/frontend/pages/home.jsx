@@ -4,15 +4,17 @@ import styles from '@/styles/home.module.css';
 const Home = () => {
     return (
         <div className={styles.homeContainer}>
-            {/* Video de fondo - más grande para evitar bordes blancos */}
+            {/* Video de fondo en su posición original */}
             <video
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="auto"
                 className={styles.homeVideo}
             >
-                <source src="/videos/eclipse-condos-background.mp4" type="video/mp4" />
+                <source src="/videos/mareazulbackgroundvideo.mp4" type="video/mp4" />
+                <source src="/videos/mareazulbackgroundvideo.MOV" type="video/quicktime" />
                 Tu navegador no soporta el elemento video.
             </video>
 
