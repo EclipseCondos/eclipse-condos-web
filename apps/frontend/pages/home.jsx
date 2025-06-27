@@ -5,18 +5,7 @@ const Home = () => {
     return (
         <div className={styles.homeContainer}>
             {/* Video de fondo en su posición original */}
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                className={styles.homeVideo}
-            >
-                <source src="/videos/mareazulbackgroundvideo.mp4" type="video/mp4" />
-                <source src="/videos/mareazulbackgroundvideo.MOV" type="video/quicktime" />
-                Tu navegador no soporta el elemento video.
-            </video>
+            
 
             {/* Overlay para mejorar legibilidad del texto */}
             <div className={styles.homeOverlay}></div>
