@@ -12,7 +12,7 @@ const Home = () => {
                 playsInline
                 className={styles.homeVideo}
             >
-                <source src="/videos/eclipse-condos-background.mov" type="video/mp4" />
+                <source src="p/videos/eclipse-condos-background.mp4" type="video/mp4" />
                 Tu navegador no soporta el elemento video.
             </video>
 

@@ -22,7 +22,7 @@
   width: auto;
   height: auto;
   object-fit: cover;
-  z-index: 0;
+  z-index: -1;
   transform: translate(-50%, -50%);
   /* Video más grande para evitar bordes blancos */
   width: 120vw;
