@@ -11,20 +11,37 @@ body {
   margin: 0;
   font-family: Futura, "Futura Light", Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  overflow-x: hidden; /* Prevenir scroll horizontal */
+  overflow-x: hidden; /* Prevenir scroll horizontal completamente */
   overflow-y: auto; /* Permitir scroll vertical normal */
-  width: 100%;
-  height: 100%;
+  width: 100vw; /* Solución temporal que funciona */
+  height: 100vh; /* Usar viewport height para garantizar altura completa */
+  min-width: 100vw; /* Garantizar ancho mínimo */
+  min-height: 100vh; /* Garantizar altura mínima */
   /* Prevenir arrastre y bounce en móviles */
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
   /* Fondo negro para evitar cualquier destello blanco */
   background-color: #000000;
+  /* Forzar el box-sizing para asegurar que no hay interferencias */
+  box-sizing: border-box !important;
 }
 
 #__next {
-  height: 100%;
+  width: 100vw; /* Garantizar ancho completo del viewport */
+  height: 100vh; /* Garantizar altura completa del viewport */
+  min-width: 100vw; /* Garantizar ancho mínimo */
+  min-height: 100vh; /* Garantizar altura mínima */
   overflow-y: auto; /* Permitir scroll en el contenedor de Next.js */
+  overflow-x: hidden; /* Prevenir scroll horizontal */
+}
+
+main {
+  width: 100vw; /* Garantizar ancho completo del viewport */
+  min-width: 100vw; /* Garantizar ancho mínimo */
+  margin: 0; /* Eliminar márgenes */
+  padding: 0; /* Eliminar padding */
+  position: relative; /* Posicionamiento fijo */
+  overflow-x: hidden; /* Prevenir scroll horizontal */
 }
 
 a {
@@ -34,6 +51,8 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0; /* Reset de márgenes para todos los elementos */
+  padding: 0; /* Reset de paddings para todos los elementos */
 }
 
 /* Prevenir el "rubber band" effect en iOS y el arrastre */
@@ -73,6 +92,5 @@ body {
   width: auto !important;
   height: auto !important;
   transform: translate(-50%, -50%) !important;
-  z-index: 0 !important;
-  object-fit: cover !important;
+  z-index: 0 !important;  object-fit: cover !important;
 }

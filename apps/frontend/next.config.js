@@ -3,6 +3,9 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    appDir: true,
+  },
   
   // Configuración específica para archivos multimedia en Windows
   assetPrefix: '',
@@ -47,7 +50,7 @@ const nextConfig = {
     config.resolve.alias = {
       ...config.resolve.alias,
       // Alias para el frontend (@/) - Solo cliente Next.js
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './'),
       '@/components': path.resolve(__dirname, './src/components'),
       '@/services': path.resolve(__dirname, './src/services'),
       '@/utils': path.resolve(__dirname, './src/utils'),

@@ -4,9 +4,6 @@ import styles from '@/styles/home.module.css';
 const Home = () => {
     return (
         <div className={styles.homeContainer}>
-            {/* Video de fondo en su posición original */}
-            
-
             {/* Overlay para mejorar legibilidad del texto */}
             <div className={styles.homeOverlay}></div>
 
