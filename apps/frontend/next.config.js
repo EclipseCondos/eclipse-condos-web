@@ -7,11 +7,7 @@ const nextConfig = {
     appDir: true,
   },
   
-  // Configuración específica para archivos multimedia en Windows
-  assetPrefix: '',
-  trailingSlash: false,
-  
-  // Headers específicos para archivos multimedia
+  // Headers optimizados para archivos multimedia
   async headers() {
     return [
       {
@@ -22,12 +18,17 @@ const nextConfig = {
             value: 'public, max-age=31536000, immutable',
           },
           {
-            key: 'Content-Type',
-            value: 'video/mp4',
-          },
-          {
             key: 'Accept-Ranges',
             value: 'bytes',
+          },
+        ],
+      },
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },
@@ -35,18 +36,6 @@ const nextConfig = {
   },
   
   webpack: (config) => {
-    // Configuración para archivos multimedia en Windows
-    config.module.rules.push({
-      test: /\.(mp4|webm|ogg|mov)$/,
-      use: {
-        loader: 'file-loader',
-        options: {
-          publicPath: '/_next/static/media/',
-          outputPath: 'static/media/',
-        },
-      },
-    });
-    
     config.resolve.alias = {
       ...config.resolve.alias,
       // Alias para el frontend (@/) - Solo cliente Next.js
