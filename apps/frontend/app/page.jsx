@@ -4,20 +4,7 @@ import styles from '@/styles/home.module.css';
 const Home = () => {
     return (
         <div className={styles.homeContainer}>
-            {/* Video de fondo optimizado */}
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className={styles.homeVideo}
-                poster="/images/condos/video-poster.jpg" // Imagen de respaldo
-            >
-                <source src="/videos/mareazulbackgroundvideo.mp4" type="video/mp4" />
-                <source src="/videos/mareazulbackgroundvideo.MOV" type="video/quicktime" />
-                Tu navegador no soporta el elemento video.
-            </video>
+            
 
             {/* Overlay para mejorar legibilidad del texto */}
             <div className={styles.homeOverlay}></div>

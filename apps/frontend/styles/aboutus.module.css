@@ -8,24 +8,26 @@
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  overflow-y: auto; /* Permitir scroll vertical */
+  scroll-behavior: smooth; /* Moved here from html selector */
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-position: center center; /* Center the background */
-  background-size: cover; /* Ensure the background covers the entire container */
-  margin: 0; /* Remove any unintended margins */
-  padding: 0; /* Remove any unintended padding */
-  width: 100vw; /* Ensure the container spans the full viewport width */
-  min-width: 100vw; /* Guarantee minimum width */
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%),
-    linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 75%, #475569 100%);
+  background-position: center center;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-width: 100vw;
+  /* Gradiente vertical de oscuro a blanco */
+  
+  z-index: 2; /* Sobre el video del layout */
 }
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 3; /* Asegurar que está sobre el fondo */
 }
 
 /* ================================= */
@@ -107,7 +109,20 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  width: 100%; /* Ensure the section spans the full width */
+  width: 100%;
+  z-index: 4; 
+  /* Overlay más visible pero claro para ver mejor el video */
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* Overlay más claro */
+  z-index: 1;
 }
 
 .heroParallax {
@@ -151,10 +166,15 @@
 
 .heroContent {
   position: relative;
-  z-index: 3;
+  z-index: 5; /* Texto siempre visible */
   text-align: center;
   max-width: 900px;
-  padding: 0 2rem;
+  padding: 2rem 2rem 0 2rem; /* Menos padding top para estar más cerca del navbar */
+  background: rgba(0, 0, 0, 0.15); /* Overlay sutil pero visible para ver el video */
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .heroAnimation {
@@ -196,7 +216,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 0;
   flex-wrap: wrap;
 }
 
@@ -213,6 +233,12 @@
   font-size: 0.6em;
   color: #60a5fa;
   animation: connectorSpin 4s linear infinite;
+}
+
+/* Logo en el título del hero */
+.titleLogo {
+  margin: 0 1rem;
+  transform: translateY(-0.2em); /* Alinear verticalmente con el texto */
 }
 
 .heroSubtitle {
@@ -979,6 +1005,16 @@
     position: absolute;
     left: 0;
   }
+
+  .heroTeamGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .ownersGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1013,11 +1049,26 @@
   
   .heroTitle {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
   }
   
-  .titleConnector {
-    transform: rotate(90deg);
+  .titleLogo {
+    margin: 0;
+    transform: translateY(0);
+  }
+
+  .heroTeamGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .heroTeamCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .ownersGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
@@ -1044,4 +1095,108 @@
     height: 80px;
     font-size: 1rem;
   }
+}
+
+/* Overlay para secciones (excepto hero) */
+.sectionOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(0px);
+  z-index: 1;
+}
+
+/* Hero Team Grid Styles */
+.heroIntro {
+  text-align: center;
+  margin-bottom: 2rem; /* Reducido de 4rem */
+}
+
+.sectionBlur{
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.heroTeamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Aún más pequeñas */
+  gap: 1.5rem; /* Reducido de 2rem */
+  max-width: 1000px; /* Reducido de 1200px */
+  margin: 0 auto;
+}
+
+.heroTeamCard {
+  background: rgba(255, 255, 255, 0.08); /* Más sutil */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem; /* Reducido de 1.5rem */
+  padding: 1.5rem 1rem; /* Reducido de 2.5rem 1.5rem */
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroTeamCard:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.teamMemberIcon {
+  font-size: 2.5rem; /* Reducido de 3rem */
+  margin-bottom: 1rem; /* Reducido de 1.5rem */
+  display: block;
+}
+
+.teamMemberTitle {
+  font-size: 1.25rem; /* Reducido de 1.5rem */
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.75rem; /* Reducido de 1rem */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.teamMemberDescription {
+  font-size: 0.875rem; /* Reducido de 1rem */
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5; /* Reducido de 1.6 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Actualizar secciones para usar overlay */
+.philosophySection,
+.timelineSection,
+.valuesSection,
+.ctaSection {
+  position: relative;
+  -webkit-backdrop-filter: blur(10px) saturate(0.2);
+  backdrop-filter: blur(10px) saturate(0.2);
+}
+
+.philosophySection .container,
+.timelineSection .container,
+.valuesSection .container,
+.ctaSection .container {
+  position: relative;
+  z-index: 2; /* Sobre el overlay */
+}
+
+/* ================================= */
+/* OWNERS SECTION */
+/* ================================= */
+
+.ownersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 2rem;
 }

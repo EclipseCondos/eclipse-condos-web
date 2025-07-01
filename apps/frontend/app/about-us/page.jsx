@@ -1,51 +1,70 @@
 import React from 'react';
 import styles from '@/styles/aboutus.module.css';
+import clsx from 'clsx'
+import FloatingLogo from '@/components/animations/FloatingLogo';
+import TeamMember from '@/components/TeamMember/TeamMember';
 
 const AboutUs = () => {
     return (
         <div className={styles.aboutContainer}>
             {/* Hero Section with Parallax Effect */}
             <section className={styles.heroSection}>
-                <div className={styles.heroParallax}>
-                    <div className={styles.heroBackground}></div>
-                    <div className={styles.heroPattern}></div>
-                </div>
                 <div className={styles.heroContent}>
                     <div className={styles.heroAnimation}>
-                        <div className={styles.heroLogo}>
-                            <img 
-                                src="/images/logo/Eclipse Condos Icon (white).png" 
-                                alt="Eclipse Condos" 
-                                className={styles.heroIcon}
-                            />
-                            <div className={styles.logoGlow}></div>
+                        <div className={styles.heroIntro}>
+                            <h1 className={styles.heroTitle}>
+                                <span className={styles.titleWord}>SOBRE</span>
+                                <FloatingLogo 
+                                    size="large" 
+                                    enableRotation={false}
+                                    showGlow={true}
+                                    animationSpeed="normal"
+                                    className={styles.titleLogo} 
+                                />
+                                <span className={styles.titleWord}>NOSOTROS</span>
+                            </h1>
+                            <p className={styles.heroSubtitle}>
+                                Conoce al equipo detrás de Eclipse Condos
+                            </p>
                         </div>
-                        <h1 className={styles.heroTitle}>
-                            <span className={styles.titleWord}>ECLIPSE</span>
-                            <span className={styles.titleConnector}>∞</span>
-                            <span className={styles.titleWord}>CONDOS</span>
-                        </h1>
-                        <p className={styles.heroSubtitle}>
-                            Redefiniendo el lujo residencial con diseño visionario y tecnología inteligente
-                        </p>
-                        <div className={styles.heroMetrics}>
-                            <div className={styles.metric}>
-                                <span className={styles.metricNumber}>15+</span>
-                                <span className={styles.metricLabel}>Años Innovando</span>
+                        
+                        {/* Team Members Grid in Hero */}
+                        <div className={styles.heroTeamGrid}>
+                            <div className={styles.heroTeamCard}>
+                                <div className={styles.teamMemberIcon}>🏢</div>
+                                <h3 className={styles.teamMemberTitle}>Propietarios</h3>
+                                <p className={styles.teamMemberDescription}>
+                                    Visionarios que crearon Eclipse Condos con pasión por la hospitalidad
+                                </p>
                             </div>
-                            <div className={styles.metricDivider}></div>
-                            <div className={styles.metric}>
-                                <span className={styles.metricNumber}>500+</span>
-                                <span className={styles.metricLabel}>Hogares Creados</span>
+                            
+                            <div className={styles.heroTeamCard}>
+                                <div className={styles.teamMemberIcon}>📊</div>
+                                <h3 className={styles.teamMemberTitle}>Gestión</h3>
+                                <p className={styles.teamMemberDescription}>
+                                    Expertos en administración y operaciones de hospedaje de lujo
+                                </p>
                             </div>
-                            <div className={styles.metricDivider}></div>
-                            <div className={styles.metric}>
-                                <span className={styles.metricNumber}>98%</span>
-                                <span className={styles.metricLabel}>Satisfacción</span>
+                            
+                            <div className={styles.heroTeamCard}>
+                                <div className={styles.teamMemberIcon}>🎨</div>
+                                <h3 className={styles.teamMemberTitle}>Diseñadores</h3>
+                                <p className={styles.teamMemberDescription}>
+                                    Creativos que transforman espacios en experiencias memorables
+                                </p>
+                            </div>
+                            
+                            <div className={styles.heroTeamCard}>
+                                <div className={styles.teamMemberIcon}>🛎️</div>
+                                <h3 className={styles.teamMemberTitle}>Atención al Cliente</h3>
+                                <p className={styles.teamMemberDescription}>
+                                    Dedicados a crear momentos especiales para cada huésped
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+                
                 <div className={styles.scrollIndicator}>
                     <span className={styles.scrollText}>Descubre más</span>
                     <div className={styles.scrollArrow}>
@@ -54,292 +73,243 @@ const AboutUs = () => {
                     </div>
                 </div>
             </section>
+            <section className={clsx(styles.sectionBlur)}>
+                
 
-            {/* Philosophy Section */}
-            <section className={styles.philosophySection}>
-                <div className={styles.container}>
-                    <div className={styles.philosophyContent}>
-                        <div className={styles.philosophyText}>
+                {/* Story Timeline Section with Overlay */}
+                <section className={clsx(styles.philosophySection)}>
+                    <div className={styles.sectionOverlay}></div>
+                    <div className={styles.container}>
+                        <div className={styles.philosophyContent}>
+                            <div className={styles.philosophyText}>
+                                <div className={styles.sectionTag}>
+                                    <span className={styles.tagIcon}>✨</span>
+                                    <span>Nuestra Filosofía</span>
+                                </div>
+                                <h2 className={styles.philosophyTitle}>
+                                    Donde la <span className={styles.gradient}>hospitalidad</span> encuentra 
+                                    el <span className={styles.gradient}>lujo</span>
+                                </h2>
+                                <p className={styles.philosophyDescription}>
+                                    En Eclipse Condos, creemos que cada estancia debe ser una experiencia única que inspire 
+                                    y transforme momentos. Nuestro enfoque va más allá del hospedaje: creamos 
+                                    experiencias vacacionales que conectan el confort de casa con 
+                                    la emoción de descubrir un lugar excepcional.
+                                </p>
+                                <div className={styles.philosophyQuote}>
+                                    <div className={styles.quoteIcon}>"</div>
+                                    <p className={styles.quoteText}>
+                                        No ofrecemos departamentos, creamos experiencias memorables que perduran en el corazón.
+                                    </p>
+                                    <div className={styles.quoteAuthor}>- Equipo Eclipse Condos</div>
+                                </div>
+                            </div>
+                            <div className={styles.philosophyVisual}>
+                                <div className={styles.visualGrid}>
+                                    <div className={styles.visualCard}>
+                                        <div className={styles.cardIcon}>�</div>
+                                        <h4>Hospedaje Premium</h4>
+                                    </div>
+                                    <div className={styles.visualCard}>
+                                        <div className={styles.cardIcon}>🌿</div>
+                                        <h4>Experiencias Únicas</h4>
+                                    </div>
+                                    <div className={styles.visualCard}>
+                                        <div className={styles.cardIcon}>💎</div>
+                                        <h4>Servicio Excepcional</h4>
+                                    </div>
+                                    <div className={styles.visualCard}>
+                                        <div className={styles.cardIcon}>🏖️</div>
+                                        <h4>Ubicación Privilegiada</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Story Timeline Section with Overlay */}
+                <section className={clsx(styles.timelineSection)}>
+                    <div className={styles.sectionOverlay}></div>
+                    <div className={styles.container}>
+                        <div className={styles.sectionHeader}>
                             <div className={styles.sectionTag}>
-                                <span className={styles.tagIcon}>✨</span>
-                                <span>Nuestra Filosofía</span>
+                                <span className={styles.tagIcon}>📖</span>
+                                <span>Nuestra Historia</span>
                             </div>
-                            <h2 className={styles.philosophyTitle}>
-                                Donde la <span className={styles.gradient}>innovación</span> encuentra 
-                                el <span className={styles.gradient}>hogar</span>
+                            <h2 className={styles.sectionTitle}>
+                                Un viaje de <span className={styles.gradient}>transformación</span> 
+                                y <span className={styles.gradient}>crecimiento</span>
                             </h2>
-                            <p className={styles.philosophyDescription}>
-                                En Eclipse Condos, creemos que cada hogar debe ser una obra maestra que inspire 
-                                y transforme vidas. Nuestro enfoque va más allá de la construcción: creamos 
-                                experiencias habitacionales que conectan la arquitectura contemporánea con 
-                                la calidez del hogar ideal.
-                            </p>
-                            <div className={styles.philosophyQuote}>
-                                <div className={styles.quoteIcon}>"</div>
-                                <p className={styles.quoteText}>
-                                    No construimos edificios, construimos sueños tangibles que perduran en el tiempo.
-                                </p>
-                                <div className={styles.quoteAuthor}>- Equipo Eclipse Condos</div>
-                            </div>
                         </div>
-                        <div className={styles.philosophyVisual}>
-                            <div className={styles.visualGrid}>
-                                <div className={styles.visualCard}>
-                                    <div className={styles.cardIcon}>🏗️</div>
-                                    <h4>Diseño Inteligente</h4>
+                        <div className={styles.timeline}>
+                            <div className={styles.timelineItem}>
+                                <div className={styles.timelineYear}>2021</div>
+                                <div className={styles.timelineContent}>
+                                    <h3 className={styles.timelineTitle}>Los Inicios</h3>
+                                    <p className={styles.timelineText}>
+                                        Fundamos Eclipse Condos con la visión de ofrecer experiencias de hospedaje 
+                                        excepcionales, combinando el confort de casa con el lujo de unas vacaciones memorables.
+                                    </p>
                                 </div>
-                                <div className={styles.visualCard}>
-                                    <div className={styles.cardIcon}>🌿</div>
-                                    <h4>Sustentabilidad</h4>
+                            </div>
+                            <div className={styles.timelineItem}>
+                                <div className={styles.timelineYear}>2022</div>
+                                <div className={styles.timelineContent}>
+                                    <h3 className={styles.timelineTitle}>Primer Departamento</h3>
+                                    <p className={styles.timelineText}>
+                                        Lanzamos nuestro primer departamento de lujo en Mareazul, estableciendo 
+                                        nuevos estándares en hospedaje vacacional y atención personalizada.
+                                    </p>
                                 </div>
-                                <div className={styles.visualCard}>
-                                    <div className={styles.cardIcon}>💎</div>
-                                    <h4>Calidad Premium</h4>
+                            </div>
+                            <div className={styles.timelineItem}>
+                                <div className={styles.timelineYear}>2023</div>
+                                <div className={styles.timelineContent}>
+                                    <h3 className={styles.timelineTitle}>Expansión de Servicios</h3>
+                                    <p className={styles.timelineText}>
+                                        Ampliamos nuestra oferta con servicios concierge y experiencias personalizadas, 
+                                        llevando la hospitalidad a un nivel superior.
+                                    </p>
                                 </div>
-                                <div className={styles.visualCard}>
-                                    <div className={styles.cardIcon}>🚀</div>
-                                    <h4>Tecnología</h4>
+                            </div>
+                            <div className={styles.timelineItem}>
+                                <div className={styles.timelineYear}>2024</div>
+                                <div className={styles.timelineContent}>
+                                    <h3 className={styles.timelineTitle}>Tecnología y Comodidad</h3>
+                                    <p className={styles.timelineText}>
+                                        Integramos tecnología inteligente y sistemas automatizados para brindar 
+                                        mayor comodidad y una experiencia de hospedaje verdaderamente moderna.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Story Timeline Section */}
-            <section className={styles.timelineSection}>
-                <div className={styles.container}>
-                    <div className={styles.sectionHeader}>
-                        <div className={styles.sectionTag}>
-                            <span className={styles.tagIcon}>📖</span>
-                            <span>Nuestra Historia</span>
-                        </div>
-                        <h2 className={styles.sectionTitle}>
-                            Un viaje de <span className={styles.gradient}>transformación</span> 
-                            y <span className={styles.gradient}>crecimiento</span>
-                        </h2>
-                    </div>
-                    <div className={styles.timeline}>
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineYear}>2008</div>
-                            <div className={styles.timelineContent}>
-                                <h3 className={styles.timelineTitle}>Los Cimientos</h3>
-                                <p className={styles.timelineText}>
-                                    Fundamos Eclipse Condos con la visión de revolucionar el sector inmobiliario, 
-                                    combinando diseño arquitectónico excepcional con tecnología de vanguardia.
-                                </p>
-                            </div>
-                        </div>
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineYear}>2012</div>
-                            <div className={styles.timelineContent}>
-                                <h3 className={styles.timelineTitle}>Pioneros Verdes</h3>
-                                <p className={styles.timelineText}>
-                                    Lanzamos nuestro primer proyecto con certificación LEED, estableciendo 
-                                    nuevos estándares en construcción sustentable y eficiencia energética.
-                                </p>
-                            </div>
-                        </div>
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineYear}>2018</div>
-                            <div className={styles.timelineContent}>
-                                <h3 className={styles.timelineTitle}>Expansión Nacional</h3>
-                                <p className={styles.timelineText}>
-                                    Expandimos nuestra presencia a nivel nacional, llevando nuestra filosofía 
-                                    de diseño y calidad a múltiples ciudades del país.
-                                </p>
-                            </div>
-                        </div>
-                        <div className={styles.timelineItem}>
-                            <div className={styles.timelineYear}>2024</div>
-                            <div className={styles.timelineContent}>
-                                <h3 className={styles.timelineTitle}>Era Smart</h3>
-                                <p className={styles.timelineText}>
-                                    Integramos sistemas de domótica avanzada y IoT en todos nuestros proyectos, 
-                                    creando hogares verdaderamente inteligentes y conectados.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Values Section with Interactive Cards */}
-            <section className={styles.valuesSection}>
-                <div className={styles.container}>
-                    <div className={styles.sectionHeader}>
-                        <div className={styles.sectionTag}>
-                            <span className={styles.tagIcon}>🎯</span>
-                            <span>Nuestros Valores</span>
-                        </div>
-                        <h2 className={styles.sectionTitle}>
-                            Los principios que <span className={styles.gradient}>nos guían</span>
-                        </h2>
-                    </div>
-                    <div className={styles.valuesGrid}>
-                        <div className={styles.valueCard}>
-                            <div className={styles.cardBackground}></div>
-                            <div className={styles.valueIcon}>
-                                <span>💎</span>
-                                <div className={styles.iconRing}></div>
-                            </div>
-                            <h3 className={styles.valueTitle}>Excelencia</h3>
-                            <p className={styles.valueDescription}>
-                                Compromiso inquebrantable con la calidad superior en cada detalle, 
-                                desde el diseño inicial hasta los acabados finales.
-                            </p>
-                            <div className={styles.valueFeatures}>
-                                <span>• Materiales premium</span>
-                                <span>• Acabados de lujo</span>
-                                <span>• Control de calidad riguroso</span>
-                            </div>
-                        </div>
-                        
-                        <div className={styles.valueCard}>
-                            <div className={styles.cardBackground}></div>
-                            <div className={styles.valueIcon}>
-                                <span>🌱</span>
-                                <div className={styles.iconRing}></div>
-                            </div>
-                            <h3 className={styles.valueTitle}>Sostenibilidad</h3>
-                            <p className={styles.valueDescription}>
-                                Construcción responsable que respeta el medio ambiente y 
-                                maximiza la eficiencia energética para el futuro.
-                            </p>
-                            <div className={styles.valueFeatures}>
-                                <span>• Certificaciones verdes</span>
-                                <span>• Energías renovables</span>
-                                <span>• Materiales eco-friendly</span>
-                            </div>
-                        </div>
-                        
-                        <div className={styles.valueCard}>
-                            <div className={styles.cardBackground}></div>
-                            <div className={styles.valueIcon}>
-                                <span>🚀</span>
-                                <div className={styles.iconRing}></div>
-                            </div>
-                            <h3 className={styles.valueTitle}>Innovación</h3>
-                            <p className={styles.valueDescription}>
-                                Adopción de tecnologías emergentes y tendencias de diseño 
-                                que definen el futuro de la vida residencial.
-                            </p>
-                            <div className={styles.valueFeatures}>
-                                <span>• Smart home technology</span>
-                                <span>• Diseño adaptativo</span>
-                                <span>• Realidad virtual</span>
-                            </div>
-                        </div>
-                        
-                        <div className={styles.valueCard}>
-                            <div className={styles.cardBackground}></div>
-                            <div className={styles.valueIcon}>
-                                <span>🤝</span>
-                                <div className={styles.iconRing}></div>
-                            </div>
-                            <h3 className={styles.valueTitle}>Confianza</h3>
-                            <p className={styles.valueDescription}>
-                                Relaciones duraderas basadas en transparencia, integridad 
-                                y un servicio al cliente excepcional.
-                            </p>
-                            <div className={styles.valueFeatures}>
-                                <span>• Atención personalizada</span>
-                                <span>• Transparencia total</span>
-                                <span>• Soporte post-venta</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Team Section */}
-            <section className={styles.teamSection}>
-                <div className={styles.container}>
-                    <div className={styles.teamContent}>
-                        <div className={styles.teamInfo}>
+                {/* Values Section with Interactive Cards and Overlay */}
+                <section className={clsx(styles.valuesSection)}>
+                    <div className={styles.sectionOverlay}></div>
+                    <div className={styles.container}>
+                        <div className={styles.sectionHeader}>
                             <div className={styles.sectionTag}>
-                                <span className={styles.tagIcon}>👥</span>
-                                <span>Nuestro Equipo</span>
+                                <span className={styles.tagIcon}>🎯</span>
+                                <span>Nuestros Valores</span>
                             </div>
-                            <h2 className={styles.teamTitle}>
-                                Expertos apasionados por la <span className={styles.gradient}>perfección</span>
+                            <h2 className={styles.sectionTitle}>
+                                Los principios que <span className={styles.gradient}>nos guían</span>
                             </h2>
-                            <p className={styles.teamDescription}>
-                                Nuestro equipo multidisciplinario reúne a los mejores talentos en arquitectura, 
-                                ingeniería, diseño de interiores y gestión de proyectos. Cada profesional aporta 
-                                experiencia única y visión innovadora para materializar proyectos extraordinarios.
-                            </p>
-                            <div className={styles.teamSpecialties}>
-                                <div className={styles.specialty}>
-                                    <div className={styles.specialtyIcon}>🏛️</div>
-                                    <span>Arquitectos</span>
-                                </div>
-                                <div className={styles.specialty}>
-                                    <div className={styles.specialtyIcon}>⚙️</div>
-                                    <span>Ingenieros</span>
-                                </div>
-                                <div className={styles.specialty}>
-                                    <div className={styles.specialtyIcon}>🎨</div>
-                                    <span>Diseñadores</span>
-                                </div>
-                                <div className={styles.specialty}>
-                                    <div className={styles.specialtyIcon}>📊</div>
-                                    <span>Project Managers</span>
-                                </div>
-                            </div>
                         </div>
-                        <div className={styles.teamStats}>
-                            <div className={styles.statCard}>
-                                <div className={styles.statNumber}>25+</div>
-                                <div className={styles.statLabel}>Profesionales</div>
-                                <div className={styles.statDescription}>Expertos especializados</div>
+                        <div className={styles.valuesGrid}>
+                            <div className={styles.valueCard}>
+                                <div className={styles.cardBackground}></div>
+                                <div className={styles.valueIcon}>
+                                    <span>💎</span>
+                                    <div className={styles.iconRing}></div>
+                                </div>
+                                <h3 className={styles.valueTitle}>Excelencia</h3>
+                                <p className={styles.valueDescription}>
+                                    Compromiso inquebrantable con la calidad superior en cada detalle de la experiencia, 
+                                    desde la llegada hasta la despedida de nuestros huéspedes.
+                                </p>
+                                <div className={styles.valueFeatures}>
+                                    <span>• Departamentos de lujo</span>
+                                    <span>• Amenidades premium</span>
+                                    <span>• Atención personalizada</span>
+                                </div>
                             </div>
-                            <div className={styles.statCard}>
-                                <div className={styles.statNumber}>8</div>
-                                <div className={styles.statLabel}>Especialidades</div>
-                                <div className={styles.statDescription}>Áreas de expertise</div>
+                            
+                            <div className={styles.valueCard}>
+                                <div className={styles.cardBackground}></div>
+                                <div className={styles.valueIcon}>
+                                    <span>🛎️</span>
+                                    <div className={styles.iconRing}></div>
+                                </div>
+                                <h3 className={styles.valueTitle}>Hospitalidad</h3>
+                                <p className={styles.valueDescription}>
+                                    Servicio excepcional que anticipa y supera las expectativas, 
+                                    creando momentos especiales durante cada estancia.
+                                </p>
+                                <div className={styles.valueFeatures}>
+                                    <span>• Servicio concierge</span>
+                                    <span>• Atención 24/7</span>
+                                    <span>• Experiencias personalizadas</span>
+                                </div>
                             </div>
-                            <div className={styles.statCard}>
-                                <div className={styles.statNumber}>150+</div>
-                                <div className={styles.statLabel}>Años Experiencia</div>
-                                <div className={styles.statDescription}>Combinada del equipo</div>
+                            
+                            <div className={styles.valueCard}>
+                                <div className={styles.cardBackground}></div>
+                                <div className={styles.valueIcon}>
+                                    <span>🏖️</span>
+                                    <div className={styles.iconRing}></div>
+                                </div>
+                                <h3 className={styles.valueTitle}>Experiencia</h3>
+                                <p className={styles.valueDescription}>
+                                    Creamos memorias inolvidables combinando comodidad excepcional 
+                                    con experiencias únicas en un entorno paradisíaco.
+                                </p>
+                                <div className={styles.valueFeatures}>
+                                    <span>• Ubicación privilegiada</span>
+                                    <span>• Actividades exclusivas</span>
+                                    <span>• Conexión con la naturaleza</span>
+                                </div>
+                            </div>
+                            
+                            <div className={styles.valueCard}>
+                                <div className={styles.cardBackground}></div>
+                                <div className={styles.valueIcon}>
+                                    <span>🤝</span>
+                                    <div className={styles.iconRing}></div>
+                                </div>
+                                <h3 className={styles.valueTitle}>Confianza</h3>
+                                <p className={styles.valueDescription}>
+                                    Relaciones duraderas basadas en transparencia, integridad 
+                                    y un compromiso genuino con la satisfacción del huésped.
+                                </p>
+                                <div className={styles.valueFeatures}>
+                                    <span>• Comunicación clara</span>
+                                    <span>• Transparencia total</span>
+                                    <span>• Seguimiento post-estancia</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* CTA Section */}
-            <section className={styles.ctaSection}>
-                <div className={styles.container}>
-                    <div className={styles.ctaContent}>
-                        <div className={styles.ctaBackground}></div>
-                        <div className={styles.ctaText}>
-                            <h2 className={styles.ctaTitle}>
-                                ¿Listo para vivir el <span className={styles.gradient}>futuro</span>?
-                            </h2>
-                            <p className={styles.ctaSubtitle}>
-                                Descubre cómo Eclipse Condos puede hacer realidad tu hogar ideal. 
-                                Explora nuestros proyectos exclusivos y únete a una nueva era del lujo residencial.
-                            </p>
-                        </div>
-                        <div className={styles.ctaActions}>
-                            <button className={styles.primaryButton}>
-                                <span className={styles.buttonText}>Explorar Departamentos</span>
-                                <div className={styles.buttonIcon}>
-                                    <svg viewBox="0 0 24 24" fill="none">
-                                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2"/>
-                                    </svg>
-                                </div>
-                                <div className={styles.buttonGlow}></div>
-                            </button>
-                            <button className={styles.secondaryButton}>
-                                <span className={styles.buttonText}>Contactar Ahora</span>
-                                <div className={styles.buttonRipple}></div>
-                            </button>
+                {/* CTA Section with Overlay */}
+                <section className={clsx(styles.ctaSection)}>
+                    <div className={styles.sectionOverlay}></div>
+                    <div className={styles.container}>
+                        <div className={styles.ctaContent}>
+                            <div className={styles.ctaBackground}></div>
+                            <div className={styles.ctaText}>
+                                <h2 className={styles.ctaTitle}>
+                                    ¿Listo para vivir una experiencia <span className={styles.gradient}>única</span>?
+                                </h2>
+                                <p className={styles.ctaSubtitle}>
+                                    Descubre cómo Eclipse Condos puede hacer realidad tus vacaciones perfectas. 
+                                    Explora nuestros departamentos exclusivos y únete a una experiencia de hospedaje excepcional.
+                                </p>
+                            </div>
+                            <div className={styles.ctaActions}>
+                                <button className={styles.primaryButton}>
+                                    <span className={styles.buttonText}>Explorar Departamentos</span>
+                                    <div className={styles.buttonIcon}>
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2"/>
+                                        </svg>
+                                    </div>
+                                    <div className={styles.buttonGlow}></div>
+                                </button>
+                                <button className={styles.secondaryButton}>
+                                    <span className={styles.buttonText}>Contactar Ahora</span>
+                                    <div className={styles.buttonRipple}></div>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
             </section>
         </div>
     );

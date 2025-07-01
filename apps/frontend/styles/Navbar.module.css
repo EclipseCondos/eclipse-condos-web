@@ -12,8 +12,8 @@
   transition: transform 0.2s ease;
   padding: 0.75rem 1.5rem;
   border-radius: 0px 0px 10px 10px;
-  background: rgba(255, 255, 255, 0.041);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(190, 190, 149, 0.2);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   height: 15rem;
@@ -25,14 +25,14 @@
   transform: scale(1.08);
   background: rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(12, 12, 12, 0.2);
   border-top: none;
 }
 
 .logoImage {
   height: 6rem;
   width: auto;
-  filter: brightness(0) invert(1) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+  filter: brightness(0) invert(1) drop-shadow(0 5px 8px rgba(0, 0, 0, 0.4));
 }
 
 .navbar {
@@ -40,7 +40,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(82, 75, 48, 0.286);
   -webkit-backdrop-filter: blur(7px) saturate(200%) brightness(1.1);
   backdrop-filter: blur(7px) saturate(200%) brightness(1.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -89,7 +89,7 @@
     background: rgba(0, 0, 0, 0.4);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
     backdrop-filter: blur(25px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.056);
     border-radius: 15px;
     padding: 1rem;
     margin-top: 0.5rem;
@@ -251,24 +251,25 @@
     top: 1rem;
     left: 1rem;
     position: fixed;
+    z-index: 1002;
   }
   .logoLink {
     padding: 0.5rem 1rem;
     border-radius: 0px 0px 15px 15px;
-    background: rgba(255, 255, 255, 0.08);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(15px) saturate(130%) brightness(1.1);
+    backdrop-filter: blur(15px) saturate(130%) brightness(1.1);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     height: 8rem;
     transition: transform 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-top: none;
   }
   .logoLink:hover {
     transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.18);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-top: none;
   }
   
@@ -279,22 +280,24 @@
 
   .menuIcon {
     display: flex;
-  }.navLinks {
+  }
+
+  .navLinks {
     position: fixed;
     top: -1rem;
     right: -33vh;
     height: 100vh;
     width: 30vh;
     background: rgba(0, 0, 0, 0.4);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
-    backdrop-filter: blur(25px) saturate(180%);
-    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(25px) saturate(150%) brightness(0.8);
+    backdrop-filter: blur(25px) saturate(150%) brightness(0.8);
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2.5rem;
     transition: right 0.4s cubic-bezier(0.2, 0, 0.2, 1);
-    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.6);
     z-index: 1001;
   }
 
@@ -303,10 +306,10 @@
   }  .navLinks li a {
     font-size: 1.1rem;
     padding: 1.2rem 0;
-    background: rgba(255, 255, 255, 0.15);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(15px) saturate(120%);
+    backdrop-filter: blur(15px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 25px;
     width: 200px;
     height: 60px;
@@ -314,20 +317,21 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 1);
     transition: all 0.3s ease;
   }
 
   .navLinks li a:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.35);
     transform: translateY(-3px) scale(1.02);
     color: #ffffff;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
   }
 
   /* Mobile Dropdown Styles */
@@ -348,10 +352,10 @@
   .navButton {
     font-size: 1.1rem;
     padding: 1.2rem;
-    background: rgba(255, 255, 255, 0.15);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(15px) saturate(120%);
+    backdrop-filter: blur(15px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 25px;
     width: 200px;
     height: 60px;
@@ -359,21 +363,22 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 1);
     transition: all 0.3s ease;
     cursor: pointer;
   }
 
   .navButton:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.35);
     transform: translateY(-3px) scale(1.02);
     color: #ffffff;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
   }
 
   .dropdown {
@@ -389,9 +394,10 @@
   }
 
   .dropdownItem {
-    background: rgba(255, 255, 255, 0.1);
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(12px) saturate(110%);
+    backdrop-filter: blur(12px) saturate(110%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 20px;
     width: 180px;
     height: 50px;
@@ -399,16 +405,19 @@
     align-items: center;
     justify-content: center;
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 500;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 1);
+    font-weight: 600;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 1);
     transition: all 0.3s ease;
   }
 
   .dropdownItem:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 1);
   }
 
   .dropdownItem.activeDropdownItem {
@@ -429,7 +438,9 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(8px) saturate(120%) brightness(0.7);
+    backdrop-filter: blur(8px) saturate(120%) brightness(0.7);
     z-index: 999;
     opacity: 0;
     animation: fadeIn 0.3s ease forwards;

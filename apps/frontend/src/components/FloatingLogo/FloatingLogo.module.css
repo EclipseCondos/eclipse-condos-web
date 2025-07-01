@@ -1,0 +1,99 @@
+/* ================================= */
+/* FLOATING LOGO COMPONENT */
+/* ================================= */
+
+.logoContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logoWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+.logoImage {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.3));
+  transition: all 0.3s ease;
+}
+
+.logoGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: glowPulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Size variants */
+.small .logoImage {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.small .logoGlow {
+  width: 2rem;
+  height: 2rem;
+}
+
+.medium .logoImage {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.medium .logoGlow {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.large .logoImage {
+  width: 4rem;
+  height: 4rem;
+}
+
+.large .logoGlow {
+  width: 6rem;
+  height: 6rem;
+}
+
+/* Animations */
+@keyframes logoFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-8px) rotate(180deg); 
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% { 
+    opacity: 0.5; 
+    transform: translate(-50%, -50%) scale(1); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: translate(-50%, -50%) scale(1.1); 
+  }
+}
+
+/* Hover effects */
+.logoContainer:hover .logoImage {
+  filter: drop-shadow(0 6px 20px rgba(255, 255, 255, 0.5));
+  transform: scale(1.1);
+}
+
+.logoContainer:hover .logoGlow {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.3);
+}

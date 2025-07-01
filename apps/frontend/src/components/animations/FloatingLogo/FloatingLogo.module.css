@@ -1,0 +1,222 @@
+/* ================================= */
+/* FLOATING LOGO ANIMATION COMPONENT */
+/* ================================= */
+
+.logoContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logoWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer {
+  position: relative;
+  z-index: 2;
+}
+
+.logoImage {
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.3));
+  transition: all 0.3s ease;
+}
+
+.logoGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: glowPulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* ================================= */
+/* SIZE VARIANTS */
+/* ================================= */
+
+.xs .imageContainer {
+  width: 1rem;
+  height: 1rem;
+}
+
+.xs .logoGlow {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.small .imageContainer {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.small .logoGlow {
+  width: 2rem;
+  height: 2rem;
+}
+
+.medium .imageContainer {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.medium .logoGlow {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.large .imageContainer {
+  width: 4rem;
+  height: 4rem;
+}
+
+.large .logoGlow {
+  width: 6rem;
+  height: 6rem;
+}
+
+.xl .imageContainer {
+  width: 5rem;
+  height: 5rem;
+}
+
+.xl .logoGlow {
+  width: 7rem;
+  height: 7rem;
+}
+
+.xxl .imageContainer {
+  width: 6rem;
+  height: 6rem;
+}
+
+.xxl .logoGlow {
+  width: 8rem;
+  height: 8rem;
+}
+
+/* ================================= */
+/* ANIMATION VARIANTS */
+/* ================================= */
+
+/* Sin rotación - solo flotación */
+.withoutRotation {
+  animation: logoFloatOnly 3s ease-in-out infinite;
+}
+
+/* Con rotación - flotación + rotación */
+.withRotation {
+  animation: logoFloatWithRotation 3s ease-in-out infinite;
+}
+
+/* ================================= */
+/* ANIMATION SPEEDS */
+/* ================================= */
+
+.speed-slow .logoWrapper {
+  animation-duration: 4s;
+}
+
+.speed-normal .logoWrapper {
+  animation-duration: 3s;
+}
+
+.speed-fast .logoWrapper {
+  animation-duration: 2s;
+}
+
+.speed-slow .logoGlow {
+  animation-duration: 3s;
+}
+
+.speed-normal .logoGlow {
+  animation-duration: 2s;
+}
+
+.speed-fast .logoGlow {
+  animation-duration: 1.5s;
+}
+
+/* ================================= */
+/* KEYFRAME ANIMATIONS */
+/* ================================= */
+
+/* Solo flotación */
+@keyframes logoFloatOnly {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-8px); 
+  }
+}
+
+/* Flotación con rotación */
+@keyframes logoFloatWithRotation {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-8px) rotate(180deg); 
+  }
+}
+
+/* Efecto de resplandor */
+@keyframes glowPulse {
+  0%, 100% { 
+    opacity: 0.5; 
+    transform: translate(-50%, -50%) scale(1); 
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: translate(-50%, -50%) scale(1.1); 
+  }
+}
+
+/* ================================= */
+/* HOVER EFFECTS */
+/* ================================= */
+
+.logoContainer:hover .logoImage {
+  filter: drop-shadow(0 6px 20px rgba(255, 255, 255, 0.5));
+}
+
+.logoContainer:hover .imageContainer {
+  transform: scale(1.1);
+}
+
+.logoContainer:hover .logoGlow {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* ================================= */
+/* RESPONSIVE ADJUSTMENTS */
+/* ================================= */
+
+@media (max-width: 768px) {
+  .xs .imageContainer { width: 0.8rem; height: 0.8rem; }
+  .xs .logoGlow { width: 1.2rem; height: 1.2rem; }
+  
+  .small .imageContainer { width: 1.2rem; height: 1.2rem; }
+  .small .logoGlow { width: 1.7rem; height: 1.7rem; }
+  
+  .medium .imageContainer { width: 2rem; height: 2rem; }
+  .medium .logoGlow { width: 3rem; height: 3rem; }
+  
+  .large .imageContainer { width: 3rem; height: 3rem; }
+  .large .logoGlow { width: 4.5rem; height: 4.5rem; }
+  
+  .xl .imageContainer { width: 3.5rem; height: 3.5rem; }
+  .xl .logoGlow { width: 5rem; height: 5rem; }
+  
+  .xxl .imageContainer { width: 4rem; height: 4rem; }
+  .xxl .logoGlow { width: 5.5rem; height: 5.5rem; }
+}

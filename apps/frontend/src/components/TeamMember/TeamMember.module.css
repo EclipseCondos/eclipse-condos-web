@@ -1,0 +1,203 @@
+/* ================================= */
+/* TEAM MEMBER COMPONENT */
+/* ================================= */
+
+.teamMember {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.teamMember:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.memberImage {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.imageContainer {
+  position: relative;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.avatar {
+  object-fit: cover;
+}
+
+.imageGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: avatarGlow 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+.memberInfo {
+  position: relative;
+  z-index: 2;
+}
+
+.memberName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.memberProfession {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(96, 165, 250, 0.9);
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.memberDescription {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ================================= */
+/* SIZE VARIANTS */
+/* ================================= */
+
+.small {
+  padding: 1.5rem 1rem;
+}
+
+.small .imageContainer {
+  width: 80px;
+  height: 80px;
+}
+
+.small .imageGlow {
+  width: 100px;
+  height: 100px;
+}
+
+.small .memberName {
+  font-size: 1.25rem;
+}
+
+.small .memberProfession {
+  font-size: 0.875rem;
+}
+
+.medium {
+  padding: 2rem 1.5rem;
+}
+
+.medium .imageContainer {
+  width: 120px;
+  height: 120px;
+}
+
+.medium .imageGlow {
+  width: 140px;
+  height: 140px;
+}
+
+.large {
+  padding: 2.5rem 2rem;
+}
+
+.large .imageContainer {
+  width: 160px;
+  height: 160px;
+}
+
+.large .imageGlow {
+  width: 180px;
+  height: 180px;
+}
+
+.large .memberName {
+  font-size: 1.75rem;
+}
+
+.large .memberProfession {
+  font-size: 1.125rem;
+}
+
+/* ================================= */
+/* ANIMATIONS */
+/* ================================= */
+
+@keyframes avatarGlow {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: translate(-50%, -50%) scale(1); 
+  }
+  50% { 
+    opacity: 0.6; 
+    transform: translate(-50%, -50%) scale(1.1); 
+  }
+}
+
+/* ================================= */
+/* HOVER EFFECTS */
+/* ================================= */
+
+.teamMember:hover .imageContainer {
+  transform: scale(1.05);
+  border-color: rgba(96, 165, 250, 0.6);
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
+}
+
+.teamMember:hover .imageGlow {
+  opacity: 0.8;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.teamMember:hover .memberName {
+  color: rgba(96, 165, 250, 0.9);
+}
+
+/* ================================= */
+/* RESPONSIVE DESIGN */
+/* ================================= */
+
+@media (max-width: 768px) {
+  .small .imageContainer { width: 70px; height: 70px; }
+  .small .imageGlow { width: 90px; height: 90px; }
+  
+  .medium .imageContainer { width: 100px; height: 100px; }
+  .medium .imageGlow { width: 120px; height: 120px; }
+  
+  .large .imageContainer { width: 130px; height: 130px; }
+  .large .imageGlow { width: 150px; height: 150px; }
+  
+  .teamMember {
+    padding: 1.5rem 1rem;
+  }
+  
+  .memberName {
+    font-size: 1.25rem;
+  }
+  
+  .memberProfession {
+    font-size: 0.875rem;
+  }
+}
