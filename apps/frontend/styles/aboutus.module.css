@@ -1200,3 +1200,31 @@
   margin: 0 auto;
   padding-top: 2rem;
 }
+
+/* Utilidades globales (mover a globals.css para reutilización):
+   .glass           -> fondo semitransparente + blur + borde + sombra + transición
+   .flex-center     -> display:flex; align-items:center; justify-content:center;
+   .btn             -> botones/enlaces con padding, borde redondeado, transición
+   @keyframes fadeIn -> animación genérica de aparición
+*/
+
+/* .heroContent*/
+.heroContent {
+  /* Use global utility: .glass */
+  /* ...existing code... */
+}
+
+/*.philosophyQuote*/
+.philosophyQuote {
+  /* Use global utility: .glass */
+  /* ...existing code... */
+}
+
+/*.visualCard & .valueCard & .statCard & .ctaContent*/
+.visualCard,
+.valueCard,
+.statCard,
+.ctaContent {
+  /* Use global utility: .glass */
+  /* ...existing code... */
+}

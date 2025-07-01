@@ -9,7 +9,7 @@ const AboutUs = () => {
         <div className={styles.aboutContainer}>
             {/* Hero Section with Parallax Effect */}
             <section className={styles.heroSection}>
-                <div className={styles.heroContent}>
+                <div className={clsx(styles.heroContent, 'glass')}>
                     <div className={styles.heroAnimation}>
                         <div className={styles.heroIntro}>
                             <h1 className={styles.heroTitle}>
@@ -96,7 +96,7 @@ const AboutUs = () => {
                                     experiencias vacacionales que conectan el confort de casa con 
                                     la emoción de descubrir un lugar excepcional.
                                 </p>
-                                <div className={styles.philosophyQuote}>
+                                <div className={clsx(styles.philosophyQuote, 'glass')}>
                                     <div className={styles.quoteIcon}>"</div>
                                     <p className={styles.quoteText}>
                                         No ofrecemos departamentos, creamos experiencias memorables que perduran en el corazón.
@@ -106,19 +106,19 @@ const AboutUs = () => {
                             </div>
                             <div className={styles.philosophyVisual}>
                                 <div className={styles.visualGrid}>
-                                    <div className={styles.visualCard}>
+                                    <div className={clsx(styles.visualCard, 'glass')}>
                                         <div className={styles.cardIcon}>�</div>
                                         <h4>Hospedaje Premium</h4>
                                     </div>
-                                    <div className={styles.visualCard}>
+                                    <div className={clsx(styles.visualCard, 'glass')}>
                                         <div className={styles.cardIcon}>🌿</div>
                                         <h4>Experiencias Únicas</h4>
                                     </div>
-                                    <div className={styles.visualCard}>
+                                    <div className={clsx(styles.visualCard, 'glass')}>
                                         <div className={styles.cardIcon}>💎</div>
                                         <h4>Servicio Excepcional</h4>
                                     </div>
-                                    <div className={styles.visualCard}>
+                                    <div className={clsx(styles.visualCard, 'glass')}>
                                         <div className={styles.cardIcon}>🏖️</div>
                                         <h4>Ubicación Privilegiada</h4>
                                     </div>
