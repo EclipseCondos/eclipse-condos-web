@@ -3,11 +3,43 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    appDir: true,
+  },
+  
+  // Headers optimizados para archivos multimedia
+  async headers() {
+    return [
+      {
+        source: '/videos/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'Accept-Ranges',
+            value: 'bytes',
+          },
+        ],
+      },
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
+  
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
       // Alias para el frontend (@/) - Solo cliente Next.js
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './'),
       '@/components': path.resolve(__dirname, './src/components'),
       '@/services': path.resolve(__dirname, './src/services'),
       '@/utils': path.resolve(__dirname, './src/utils'),

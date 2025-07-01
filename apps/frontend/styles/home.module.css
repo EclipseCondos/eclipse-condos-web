@@ -10,25 +10,47 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* Fallback background */
+  background: linear-gradient(135deg, 
+    #1e3a8a 0%,     /* Azul profundo */
+    #3730a3 25%,    /* Azul violeta */
+    #1e40af 50%,    /* Azul royal */
+    #1d4ed8 75%,    /* Azul brillante */
+    #2563eb 100%    /* Azul cielo */
+  );
 }
 
-/* Video de fondo */
+/* Video de fondo optimizado */
 .homeVideo {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  z-index: 0;
-  transform: translate(-50%, -50%);
-  /* Video más grande para evitar bordes blancos */
-  width: 120vw;
-  height: 120vh;
-  min-width: 120%;
-  min-height: 120%;
+  z-index: 1;
+  /* Mejoras de rendimiento */
+  will-change: transform;
+  backface-visibility: hidden;
+  /* Fallback en caso de error */
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+}
+
+/* Fallback cuando el video no carga */
+.homeVideo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  z-index: -1;
+}
+
+/* Fondo temporal elegante mientras no hay video */
+.homeTemporaryBackground {
+  display: none; /* No longer needed, handled by homeContainer background */
 }
 
 /* Overlay oscuro para legibilidad */
@@ -38,14 +60,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2; /* Above video */
 }
 
 /* Contenedor del contenido principal */
 .homeContent {
   position: relative;
-  z-index: 20;
+  z-index: 3; /* Above all background elements */
   text-align: center;
   padding: 0 1rem;
   font-weight: 300;
