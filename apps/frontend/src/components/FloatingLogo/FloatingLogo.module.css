@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .logoWrapper {
@@ -15,13 +16,14 @@
   align-items: center;
   justify-content: center;
   animation: logoFloat 3s ease-in-out infinite;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .logoImage {
   position: relative;
   z-index: 2;
   filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.3));
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .logoGlow {
@@ -33,6 +35,7 @@
   border-radius: 50%;
   animation: glowPulse 2s ease-in-out infinite;
   z-index: 1;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Size variants */
@@ -66,6 +69,58 @@
   height: 6rem;
 }
 
+/* Mobile responsive sizes - más pequeño por defecto */
+@media (max-width: 768px) {
+  .small .logoImage {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .small .logoGlow {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .medium .logoImage {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .medium .logoGlow {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .large .logoImage {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .large .logoGlow {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+/* Animation when menu opens - solo en móvil */
+@media (max-width: 768px) {
+  .logoContainer.menuOpen {
+    transform: scale(1.2);
+  }
+
+  .logoContainer.menuOpen .logoWrapper {
+    animation: logoExpandFloat 3s ease-in-out infinite;
+  }
+
+  .logoContainer.menuOpen .logoGlow {
+    animation: expandedGlowPulse 2s ease-in-out infinite;
+  }
+
+  .logoContainer.menuOpen .logoImage {
+    filter: drop-shadow(0 6px 20px rgba(255, 255, 255, 0.5));
+  }
+}
+
 /* Animations */
 @keyframes logoFloat {
   0%, 100% { 
@@ -73,6 +128,15 @@
   }
   50% { 
     transform: translateY(-8px) rotate(180deg); 
+  }
+}
+
+@keyframes logoExpandFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg) scale(1.1); 
+  }
+  50% { 
+    transform: translateY(-12px) rotate(180deg) scale(1.15); 
   }
 }
 
@@ -84,6 +148,17 @@
   50% { 
     opacity: 0.8; 
     transform: translate(-50%, -50%) scale(1.1); 
+  }
+}
+
+@keyframes expandedGlowPulse {
+  0%, 100% { 
+    opacity: 0.7; 
+    transform: translate(-50%, -50%) scale(1.2); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1.4); 
   }
 }
 

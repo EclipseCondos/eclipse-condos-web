@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import Navbar from '@/components/Navbar/Navbar';
-import styles from '@/styles/home.module.css';
+import styles from '@/styles/Home/home.module.css';
 
 export const metadata = {
   title: 'Eclipse Condos',

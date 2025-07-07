@@ -61,7 +61,7 @@
 }
 
 .gradient {
-  background: linear-gradient(135deg, #60a5fa 0%, #a855f7 50%, #ec4899 100%);
+  background: linear-gradient(135deg, #AEDFF7 0%, #E7C6FF 50%, #FFD1DC 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -451,101 +451,6 @@
   gap: 1.5rem;
   width: 100%;
   max-width: 400px;
-}
-
-/* ================================= */
-/* TIMELINE SECTION */
-/* ================================= */
-
-.timelineSection {
-  padding: 8rem 0;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, 
-    #60a5fa 0%, 
-    #a855f7 25%, 
-    #ec4899 50%, 
-    #f59e0b 75%, 
-    #10b981 100%
-  );
-  transform: translateX(-50%);
-}
-
-.timelineItem {
-  display: flex;
-  align-items: center;
-  margin-bottom: 4rem;
-  position: relative;
-}
-
-.timelineItem:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.timelineItem:nth-child(even) .timelineContent {
-  text-align: right;
-}
-
-.timelineYear {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(15px);
-  border: 3px solid rgba(96, 165, 250, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #60a5fa;
-  position: relative;
-  z-index: 2;
-  flex-shrink: 0;
-}
-
-.timelineContent {
-  flex: 1;
-  padding: 2rem;
-  margin: 0 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  transition: all 0.3s ease;
-}
-
-.timelineContent:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-4px);
-}
-
-.timelineTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.timelineText {
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.6;
 }
 
 /* ================================= */
@@ -987,24 +892,6 @@
     grid-template-columns: 1fr;
     gap: 4rem;
   }
-  
-  .timeline::before {
-    left: 2rem;
-  }
-  
-  .timelineItem {
-    flex-direction: row !important;
-  }
-  
-  .timelineItem .timelineContent {
-    text-align: left !important;
-    margin-left: 4rem;
-  }
-  
-  .timelineYear {
-    position: absolute;
-    left: 0;
-  }
 
   .heroTeamGrid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1022,6 +909,35 @@
     padding: 0 1rem;
   }
   
+  /* Hacer cada sección aproximadamente del tamaño de la pantalla */
+  .heroSection {
+    height: 100vh;
+    min-height: 100vh;
+  }
+  
+  .philosophySection,
+  .valuesSection,
+  .teamSection,
+  .ctaSection {
+    min-height: 90vh;
+    padding: 8rem 0 4rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Ajustes específicos para Philosophy en móvil */
+  .philosophyContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .visualGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
   .heroMetrics {
     gap: 1rem;
   }
@@ -1032,6 +948,7 @@
   
   .valuesGrid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   
   .teamSpecialties {
@@ -1041,6 +958,7 @@
   .ctaActions {
     flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
   }
   
   .ctaContent {
@@ -1074,26 +992,43 @@
 
 @media (max-width: 480px) {
   .heroSection {
-    height: 80vh;
+    height: 100vh;
+    min-height: 100vh;
   }
   
   .philosophySection,
-  .timelineSection,
   .valuesSection,
   .teamSection,
   .ctaSection {
-    padding: 4rem 0;
+    min-height: 95vh;
+    padding: 6rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
-  .timelineContent {
-    margin-left: 2rem;
-    padding: 1.5rem;
+  /* Ajustes específicos para pantallas muy pequeñas */
+  .philosophyContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
   }
-    
-  .timelineYear {
-    width: 80px;
-    height: 80px;
-    font-size: 1rem;
+  
+  .visualGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .valuesGrid {
+    gap: 1.5rem;
+  }
+  
+  .ctaContent {
+    padding: 2rem 1rem;
+  }
+  
+  .ctaActions {
+    gap: 1rem;
   }
 }
 
@@ -1172,7 +1107,6 @@
 
 /* Actualizar secciones para usar overlay */
 .philosophySection,
-.timelineSection,
 .valuesSection,
 .ctaSection {
   position: relative;
@@ -1181,7 +1115,6 @@
 }
 
 .philosophySection .container,
-.timelineSection .container,
 .valuesSection .container,
 .ctaSection .container {
   position: relative;
@@ -1201,30 +1134,50 @@
   padding-top: 2rem;
 }
 
-/* Utilidades globales (mover a globals.css para reutilización):
+/* ================================= */
+/* MOBILE OPTIMIZATION - FULL SCREEN SECTIONS */
+/* ================================= */
+
+/* Asegurar que las secciones se centren mejor en móviles */
+@media (max-width: 768px) {
+  .philosophySection .container,
+  .valuesSection .container,
+  .teamSection .container,
+  .ctaSection .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 70vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .philosophySection .container,
+  .valuesSection .container,
+  .teamSection .container,
+  .ctaSection .container {
+    min-height: 75vh;
+  }
+  
+  /* Reducir títulos en móviles para que quepa mejor */
+  .philosophyTitle,
+  .valuesTitle,
+  .teamTitle,
+  .ctaTitle {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .philosophyDescription,
+  .valuesDescription {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+/* Utilidades globales para futura implementación:
    .glass           -> fondo semitransparente + blur + borde + sombra + transición
    .flex-center     -> display:flex; align-items:center; justify-content:center;
    .btn             -> botones/enlaces con padding, borde redondeado, transición
    @keyframes fadeIn -> animación genérica de aparición
 */
-
-/* .heroContent*/
-.heroContent {
-  /* Use global utility: .glass */
-  /* ...existing code... */
-}
-
-/*.philosophyQuote*/
-.philosophyQuote {
-  /* Use global utility: .glass */
-  /* ...existing code... */
-}
-
-/*.visualCard & .valueCard & .statCard & .ctaContent*/
-.visualCard,
-.valueCard,
-.statCard,
-.ctaContent {
-  /* Use global utility: .glass */
-  /* ...existing code... */
-}
