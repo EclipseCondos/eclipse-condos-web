@@ -5,6 +5,17 @@ import styles from '@/styles/Home/home.module.css';
 export const metadata = {
   title: 'Eclipse Condos',
   description: 'Condominios de lujo en Mareazul, Playa del Carmen',
+  icons: {
+    icon: [
+      { url: '/images/logo/Eclipse Condos Icon (white).png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/logo/Eclipse Condos Icon (white).png', sizes: '16x16', type: 'image/png' }
+    ],
+    shortcut: '/images/logo/Eclipse Condos Icon (white).png',
+    apple: '/images/logo/Eclipse Condos Icon (white).png',
+  },
+  manifest: '/manifest.json',
+  themeColor: '#000000',
+  viewport: 'width=device-width, initial-scale=1',
 }
 
 export default function RootLayout({ children }) {
