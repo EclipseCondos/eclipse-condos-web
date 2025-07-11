@@ -6,13 +6,13 @@ export const navLinks = [
     hasDropdown: false
   },
   {
-    name: "NOSOTROS", 
-    href: "/about-us",
+    name: "ACTIVIDADES",
+    href: "/actividades",
     hasDropdown: false
   },
   {
-    name: "ACTIVIDADES",
-    href: "/actividades",
+    name: "FAQ", 
+    href: "/FAQ",
     hasDropdown: false
   },
   {
