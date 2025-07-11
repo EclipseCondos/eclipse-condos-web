@@ -1,10 +1,14 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { usePageTitle } from '../../../src/hooks/usePageTitle';
 import styles from '../Departamento.module.css';
 
 const EclipseLunaPage = () => {
   const [currentSection, setCurrentSection] = useState('cocina');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Usar el hook para manejar el título automáticamente
+  usePageTitle();
 
   // Datos específicos del Departamento Luna
   const departmentData = {

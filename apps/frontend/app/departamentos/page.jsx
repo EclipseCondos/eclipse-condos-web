@@ -1,9 +1,13 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import { usePageTitle } from '../../src/hooks/usePageTitle';
 import styles from '@/styles/Departamentos.module.css';
 
 const DepartamentosPage = () => {
+  // Usar el hook para manejar el título automáticamente
+  usePageTitle();
+
   const departamentos = [
     {
       id: 'luna',

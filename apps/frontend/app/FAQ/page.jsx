@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { usePageTitle } from '../../src/hooks/usePageTitle';
 import styles from './FAQ.module.css';
 
 const faqData = [
@@ -128,6 +129,9 @@ const FAQ = () => {
         category: 'General',
         question: ''
     });
+
+    // Usar el hook para manejar el título automáticamente
+    usePageTitle();
 
     // Ocultar el video de fondo al montar el componente
     useEffect(() => {
