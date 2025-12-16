@@ -3,9 +3,8 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  },
+  appDir: true,
+  turbopack: {}, // provide an explicit turbopack config to allow using a custom webpack config
   
   // Headers optimizados para archivos multimedia
   async headers() {
