@@ -1,5 +1,6 @@
 import styles from '@/styles/Home/aboutus.module.css';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 const Cta = () => {
     return (
@@ -18,15 +19,17 @@ const Cta = () => {
                         </p>
                     </div>
                     <div className={styles.ctaActions}>
-                        <button className={styles.primaryButton}>
-                            <span className={styles.buttonText}>Explorar Departamentos</span>
-                            <div className={styles.buttonIcon}>
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2"/>
-                                </svg>
-                            </div>
-                            <div className={styles.buttonGlow}></div>
-                        </button>
+                        <Link href="/departamentos" legacyBehavior>
+                            <a className={styles.primaryButton}>
+                                <span className={styles.buttonText}>Explorar Departamentos</span>
+                                <div className={styles.buttonIcon}>
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2"/>
+                                    </svg>
+                                </div>
+                                <div className={styles.buttonGlow}></div>
+                            </a>
+                        </Link>
                         <button className={styles.secondaryButton}>
                             <span className={styles.buttonText}>Contactar Ahora</span>
                             <div className={styles.buttonRipple}></div>

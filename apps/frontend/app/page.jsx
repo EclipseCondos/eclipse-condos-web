@@ -56,7 +56,6 @@ const Home = () => {
                 {/* Info Sections */}
                 <Philosophy/>
                 <Values />
-                <Timeline /> 
                 <Cta />
             </section>
         </div>
