@@ -7,10 +7,10 @@ export const navLinks = [
     pageTitle: "Eclipse Condos - Condominios de Lujo en Playa del Carmen"
   },
   {
-    name: "ACTIVIDADES",
-    href: "/actividades",
+    name: "AMENIDADES",
+    href: "/amenidades",
     hasDropdown: false,
-    pageTitle: "Actividades"
+    pageTitle: "Amenidades"
   },
   {
     name: "FAQ", 
