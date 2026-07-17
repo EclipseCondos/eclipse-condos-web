@@ -4,7 +4,17 @@ import styles from '@/styles/home.module.css';
 const Home = () => {
     return (
         <div className={styles.homeContainer}>
-            
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className={styles.homeVideo}
+            >
+                <source src="/videos/mareazulbackgroundvideo-h264.mp4" type="video/mp4" />
+                Tu navegador no soporta el elemento video.
+            </video>
 
             {/* Overlay para mejorar legibilidad del texto */}
             <div className={styles.homeOverlay}></div>
