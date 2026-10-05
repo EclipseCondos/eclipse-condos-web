@@ -14,4 +14,4 @@ Closes #
 - [ ] Docs actualizadas si cambia cómo se instala, corre o despliega.
 - [ ] Tarea de Notion actualizada.
 
-Detalle y criterios de rechazo: [CONTRIBUTING.md](https://github.com/EclipseCondos/eclipse-condos-web/blob/main/CONTRIBUTING.md).
+Detalle y criterios de rechazo: [CONTRIBUTING.md](https://github.com/EclipseCondos/eclipse-condos-web/blob/dev/CONTRIBUTING.md).
