@@ -81,7 +81,7 @@ Una issue se puede empezar cuando:
 Un PR se puede unir cuando:
 
 - [ ] Todos los criterios de aceptación de la issue están marcados.
-- [ ] `npm ci && npm run build` pasa desde un clon limpio (o el chequeo de CI está en verde, cuando exista: #18).
+- [ ] `npm ci && npm run build` pasa desde un clon limpio y el chequeo `CI / build` del PR está en verde. Usa la versión de Node de `.nvmrc` (con nvm: `nvm use`).
 - [ ] El build no muestra advertencias nuevas.
 - [ ] Las rutas que toca el cambio se probaron con `next build && next start`, sin 404 ni errores en la consola del navegador.
 - [ ] Las mismas rutas se abrieron en el navegador con `npm run dev`, sin errores en pantalla ni en consola. Hay errores que solo aparecen en modo desarrollo y que `npm run build` no detecta (por ejemplo, un `Link` con `legacyBehavior` dentro de un Server Component).
