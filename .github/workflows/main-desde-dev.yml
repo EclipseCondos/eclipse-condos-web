@@ -1,0 +1,26 @@
+# A main solo entra lo que viene de dev (flujo main <- dev <- feature).
+# Para que bloquee de verdad, este check debe ser obligatorio en el ruleset de main.
+name: main solo desde dev
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize, edited]
+
+permissions: {}
+
+jobs:
+  solo-desde-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar que la rama de origen es dev
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          BASE_REPO: ${{ github.repository }}
+        run: |
+          if [ "$HEAD_REF" != "dev" ] || [ "$HEAD_REPO" != "$BASE_REPO" ]; then
+            echo "::error::A main solo se une desde dev. Este PR viene de '$HEAD_REPO:$HEAD_REF'. Cambia la base del PR a dev."
+            exit 1
+          fi
+          echo "OK: el PR viene de dev."

@@ -27,4 +27,4 @@ labels: ""
 **Depende de:** · **Relacionadas:**
 
 ---
-Antes de empezar revisa la [Definición de Listo](https://github.com/EclipseCondos/eclipse-condos-web/blob/main/CONTRIBUTING.md#definición-de-listo-dor); para cerrar, la [Definición de Hecho](https://github.com/EclipseCondos/eclipse-condos-web/blob/main/CONTRIBUTING.md#definición-de-hecho-dod).
+Antes de empezar revisa la [Definición de Listo](https://github.com/EclipseCondos/eclipse-condos-web/blob/dev/CONTRIBUTING.md#definición-de-listo-dor); para cerrar, la [Definición de Hecho](https://github.com/EclipseCondos/eclipse-condos-web/blob/main/CONTRIBUTING.md#definición-de-hecho-dod).
