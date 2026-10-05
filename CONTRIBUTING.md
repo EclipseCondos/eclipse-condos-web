@@ -20,11 +20,46 @@ Este archivo es la fuente única de las definiciones del equipo. Las issues lo e
 
 ## Flujo de trabajo
 
+Las ramas siguen el flujo `main` ← `dev` ← rama de cada issue:
+
+- `main` es lo que está publicado. Solo recibe PRs desde `dev`; un chequeo de CI (`main solo desde dev`) rechaza cualquier otro origen.
+- `dev` es la rama de integración y la rama por defecto del repo. Ahí llegan todas las features.
+- Cada issue vive en su propia rama, que sale de `dev` y vuelve a `dev`.
+
+### Trabajar una issue
+
 1. Tomar la issue de mayor prioridad del hito actual que cumpla la DoR.
-2. Crear una rama desde `main`: `tipo/issue-N-descripcion-corta` (por ejemplo `fix/issue-22-submenu-404`).
-3. Abrir un PR en borrador con `Closes #N` en la descripción para que la issue se cierre al unir.
-4. Pasar el PR a "Ready for review" cuando cumpla la DoD. Se une con merge a `main`.
+2. Actualizar `dev` y crear la rama desde ahí: `tipo/issue-N-descripcion-corta` (por ejemplo `fix/issue-22-submenu-404`).
+
+   ```bash
+   git checkout dev
+   git pull origin dev
+   git checkout -b fix/issue-22-submenu-404
+   ```
+
+3. Abrir un PR en borrador **hacia `dev`** con `Closes #N` en la descripción. La issue se cierra sola al unirse a `dev` porque es la rama por defecto.
+4. Pasar el PR a "Ready for review" cuando cumpla la DoD. Se une con merge a `dev`.
 5. Actualizar la tarea de Notion ligada a la issue.
+
+### Publicar (dev → main)
+
+Cuando `dev` tiene un conjunto de cambios probado (por ejemplo, al cerrar un hito o antes de desplegar):
+
+1. Abrir un PR de `dev` hacia `main` titulado `Release: <qué incluye>`, con la lista de issues que entran.
+2. Revisar el sitio desde `dev` con `npm ci && npm run build && npm start`.
+3. Unir con merge (sin squash, para que `main` y `dev` compartan historia).
+
+### Si `dev` se queda atrás de `main`
+
+Pasa si algo entró a `main` por otro camino (por ejemplo, un arreglo urgente). Se trae `main` a `dev` con merge, nunca con `reset --hard` ni force push:
+
+```bash
+git fetch origin
+git checkout dev
+git pull origin dev
+git merge origin/main
+git push origin dev
+```
 
 ## Definición de Listo (DoR)
 
