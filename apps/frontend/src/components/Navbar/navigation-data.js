@@ -24,11 +24,11 @@ export const navLinks = [
     hasDropdown: true,
     pageTitle: "Departamentos",
     dropdownItems: [
-      { name: "Departamento Luna", href: "/departamentos/departamento-luna", pageTitle: "Departamentos" },
-      { name: "Departamento Mar", href: "/departamentos/departamento-mar", pageTitle: "Departamentos" },
-      { name: "Departamento Sol", href: "/departamentos/departamento-sol", pageTitle: "Departamentos" },
-      { name: "Departamento Tierra", href: "/departamentos/departamento-tierra", pageTitle: "Departamentos" },
-      { name: "Departamento Arena", href: "/departamentos/departamento-arena", pageTitle: "Departamentos" }
+      { name: "Departamento Luna", href: "/departamentos/eclipse-luna", pageTitle: "Departamentos" },
+      { name: "Departamento Mar", href: "/departamentos/eclipse-mar", pageTitle: "Departamentos" },
+      { name: "Departamento Sol", href: "/departamentos/eclipse-sol", pageTitle: "Departamentos" },
+      { name: "Departamento Tierra", href: "/departamentos/eclipse-tierra", pageTitle: "Departamentos" },
+      { name: "Departamento Arena", href: "/departamentos/eclipse-arena", pageTitle: "Departamentos" }
     ]
   }
 ];
@@ -39,15 +39,10 @@ export const pageTitles = {
   "/actividades": "Actividades",
   "/FAQ": "Preguntas Frecuentes",
   "/departamentos": "Departamentos",
-  "/departamentos/departamento-luna": "Departamentos",
   "/departamentos/eclipse-luna": "Departamentos",
-  "/departamentos/departamento-mar": "Departamentos", 
   "/departamentos/eclipse-mar": "Departamentos",
-  "/departamentos/departamento-sol": "Departamentos",
   "/departamentos/eclipse-sol": "Departamentos", 
-  "/departamentos/departamento-tierra": "Departamentos",
   "/departamentos/eclipse-tierra": "Departamentos",
-  "/departamentos/departamento-arena": "Departamentos",
   "/departamentos/eclipse-arena": "Departamentos",
   "/about-us": "Nosotros"
 };
