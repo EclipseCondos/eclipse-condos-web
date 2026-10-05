@@ -37,6 +37,8 @@ Las ramas siguen el flujo `main` ← `dev` ← rama de cada issue:
    git checkout -b fix/issue-22-submenu-404
    ```
 
+   Con commits que siguen [Conventional Commits](https://www.conventionalcommits.org/es/): `fix:` corrige algo roto, `feat:` agrega algo nuevo, `refactor:` cambia código sin cambiar comportamiento, `docs:` y `chore:` para lo demás. Si el remoto avanzó antes de tu primer push, usa `git pull --rebase` (o `git config --global pull.rebase true`) para no generar commits de merge sin contenido. Una vez que la rama ya está en un PR, actualízala con `git merge origin/dev`, no con rebase, para no tener que hacer force push.
+
 3. Abrir un PR en borrador **hacia `dev`** con `Closes #N` en la descripción. La issue se cierra sola al unirse a `dev` porque es la rama por defecto.
 4. Pasar el PR a "Ready for review" cuando cumpla la DoD. Se une con merge a `dev`.
 5. Actualizar la tarea de Notion ligada a la issue.
@@ -82,6 +84,7 @@ Un PR se puede unir cuando:
 - [ ] `npm ci && npm run build` pasa desde un clon limpio (o el chequeo de CI está en verde, cuando exista: #18).
 - [ ] El build no muestra advertencias nuevas.
 - [ ] Las rutas que toca el cambio se probaron con `next build && next start`, sin 404 ni errores en la consola del navegador.
+- [ ] Las mismas rutas se abrieron en el navegador con `npm run dev`, sin errores en pantalla ni en consola. Hay errores que solo aparecen en modo desarrollo y que `npm run build` no detecta (por ejemplo, un `Link` con `legacyBehavior` dentro de un Server Component).
 - [ ] Si cambia la interfaz, se revisó también en un ancho de celular (375 px).
 - [ ] El PR enlaza su issue con `Closes #N` y alguien distinto a quien lo escribió lo revisó (o, trabajando solo, se releyó el diff completo al día siguiente).
 - [ ] La documentación (README, este archivo) refleja cualquier cambio en cómo se instala, corre o despliega.
