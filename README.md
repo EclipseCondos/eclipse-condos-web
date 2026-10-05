@@ -48,7 +48,7 @@ eclipse-condos-web/
 #### 🎯 Comandos Principales (desde la raíz)
 
 ```bash
-# Desarrollo completo (Frontend + Backend)
+# Desarrollo (Next.js; el backend Laravel aún no existe, ver #15)
 npm run dev
 
 # Solo frontend (Next.js)
@@ -109,7 +109,7 @@ npm run dev
 
 | Comando | Descripción |
 |---------|-------------|
-| `npm run dev` | Ejecuta frontend + backend simultáneamente |
+| `npm run dev` | Servidor de desarrollo de Next.js (igual que `dev:frontend`) |
 | `npm run dev:frontend` | Solo servidor de desarrollo de Next.js |
 | `npm run dev:backend` | Solo servidor de desarrollo de Laravel |
 | `npm run build` | Construye la aplicación para producción |
@@ -184,7 +184,7 @@ eclipse-condos-web/
 #### 🎯 Main Commands (from root)
 
 ```bash
-# Complete development (Frontend + Backend)
+# Development (Next.js; the Laravel backend does not exist yet, see #15)
 npm run dev
 
 # Frontend only (Next.js)
