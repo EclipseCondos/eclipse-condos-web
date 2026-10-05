@@ -48,8 +48,8 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Logo Component */}
-      <Logo />
+      {/* Logo Component - ahora recibe el estado del menú */}
+      <Logo isMenuOpen={menuOpen} />
 
       <nav className={styles.navbar}>
         <div className={styles.navbarContent}>

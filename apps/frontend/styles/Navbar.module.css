@@ -3,6 +3,7 @@
   position: fixed;
   left: 6rem;
   z-index: 1002;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .logoLink {
@@ -12,7 +13,7 @@
   transition: transform 0.2s ease;
   padding: 0.75rem 1.5rem;
   border-radius: 0px 0px 10px 10px;
-  background: rgba(190, 190, 149, 0.2);
+  background: rgba(61, 61, 61, 0.2);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
@@ -33,6 +34,7 @@
   height: 6rem;
   width: auto;
   filter: brightness(0) invert(1) drop-shadow(0 5px 8px rgba(0, 0, 0, 0.4));
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .navbar {
@@ -247,24 +249,28 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
   }
+  
   .logoContainer {
     top: 1rem;
     left: 1rem;
     position: fixed;
     z-index: 1002;
   }
+  
+  /* Logo móvil más pequeño por defecto */
   .logoLink {
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 0.7rem; /* Más pequeño */
     border-radius: 0px 0px 15px 15px;
     background: rgba(255, 255, 255, 0.12);
     -webkit-backdrop-filter: blur(15px) saturate(130%) brightness(1.1);
     backdrop-filter: blur(15px) saturate(130%) brightness(1.1);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-    height: 8rem;
-    transition: transform 0.2s ease;
+    height: 5rem; /* Más pequeño */
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-top: none;
   }
+  
   .logoLink:hover {
     transform: scale(1.05);
     background: rgba(255, 255, 255, 0.18);
@@ -273,9 +279,24 @@
     border-top: none;
   }
   
-  .logoImage {
-    height: 3rem;
+  /* Logo móvil más pequeño */
+  .logoMobile {
+    height: 2rem !important; /* Más pequeño por defecto */
     filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  }
+  
+  /* Animación cuando se abre el menú burger */
+  .logoExpanded .logoLink {
+    height: 8rem; /* Se agranda cuando se abre el menú */
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+  }
+  
+  .logoExpanded .logoMobile {
+    height: 3.5rem !important; /* Se agranda el logo */
+    filter: brightness(0) invert(1) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.3));
   }
 
   .menuIcon {

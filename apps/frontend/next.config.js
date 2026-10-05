@@ -3,9 +3,8 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  },
+  appDir: true,
+  turbopack: {}, // provide an explicit turbopack config to allow using a custom webpack config
   
   // Headers optimizados para archivos multimedia
   async headers() {
@@ -57,19 +56,6 @@ const nextConfig = {
     };
     return config;
   },
-
-  turbopack: (config) => {
-    // Configuración de Turbopack para optimización de imágenes y videos
-    config.image = {
-      domains: ['your-image-domain.com'], // Reemplaza con tus dominios de imágenes
-      formats: ['image/avif', 'image/webp'],
-    };
-    config.video = {
-      domains: ['your-video-domain.com'], // Reemplaza con tus dominios de videos
-      formats: ['video/mp4', 'video/webm'],
-    };
-    return config;
-  }
 }
 
 module.exports = nextConfig
