@@ -20,11 +20,48 @@ Este archivo es la fuente única de las definiciones del equipo. Las issues lo e
 
 ## Flujo de trabajo
 
+Las ramas siguen el flujo `main` ← `dev` ← rama de cada issue:
+
+- `main` es lo que está publicado. Solo recibe PRs desde `dev`; un chequeo de CI (`main solo desde dev`) rechaza cualquier otro origen.
+- `dev` es la rama de integración y la rama por defecto del repo. Ahí llegan todas las features.
+- Cada issue vive en su propia rama, que sale de `dev` y vuelve a `dev`.
+
+### Trabajar una issue
+
 1. Tomar la issue de mayor prioridad del hito actual que cumpla la DoR.
-2. Crear una rama desde `main`: `tipo/issue-N-descripcion-corta` (por ejemplo `fix/issue-22-submenu-404`).
-3. Abrir un PR en borrador con `Closes #N` en la descripción para que la issue se cierre al unir.
-4. Pasar el PR a "Ready for review" cuando cumpla la DoD. Se une con merge a `main`.
+2. Actualizar `dev` y crear la rama desde ahí: `tipo/issue-N-descripcion-corta` (por ejemplo `fix/issue-22-submenu-404`).
+
+   ```bash
+   git checkout dev
+   git pull origin dev
+   git checkout -b fix/issue-22-submenu-404
+   ```
+
+   Con commits que siguen [Conventional Commits](https://www.conventionalcommits.org/es/): `fix:` corrige algo roto, `feat:` agrega algo nuevo, `refactor:` cambia código sin cambiar comportamiento, `docs:` y `chore:` para lo demás. Si el remoto avanzó antes de tu primer push, usa `git pull --rebase` (o `git config --global pull.rebase true`) para no generar commits de merge sin contenido. Una vez que la rama ya está en un PR, actualízala con `git merge origin/dev`, no con rebase, para no tener que hacer force push.
+
+3. Abrir un PR en borrador **hacia `dev`** con `Closes #N` en la descripción. La issue se cierra sola al unirse a `dev` porque es la rama por defecto.
+4. Pasar el PR a "Ready for review" cuando cumpla la DoD. Se une con merge a `dev`.
 5. Actualizar la tarea de Notion ligada a la issue.
+
+### Publicar (dev → main)
+
+Cuando `dev` tiene un conjunto de cambios probado (por ejemplo, al cerrar un hito o antes de desplegar):
+
+1. Abrir un PR de `dev` hacia `main` titulado `Release: <qué incluye>`, con la lista de issues que entran.
+2. Revisar el sitio desde `dev` con `npm ci && npm run build && npm start`.
+3. Unir con merge (sin squash, para que `main` y `dev` compartan historia).
+
+### Si `dev` se queda atrás de `main`
+
+Pasa si algo entró a `main` por otro camino (por ejemplo, un arreglo urgente). Se trae `main` a `dev` con merge, nunca con `reset --hard` ni force push:
+
+```bash
+git fetch origin
+git checkout dev
+git pull origin dev
+git merge origin/main
+git push origin dev
+```
 
 ## Definición de Listo (DoR)
 
@@ -44,9 +81,10 @@ Una issue se puede empezar cuando:
 Un PR se puede unir cuando:
 
 - [ ] Todos los criterios de aceptación de la issue están marcados.
-- [ ] `npm ci && npm run build` pasa desde un clon limpio (o el chequeo de CI está en verde, cuando exista: #18).
+- [ ] `npm ci && npm run build` pasa desde un clon limpio y el chequeo `CI / build` del PR está en verde. Usa la versión de Node de `.nvmrc` (con nvm: `nvm use`).
 - [ ] El build no muestra advertencias nuevas.
 - [ ] Las rutas que toca el cambio se probaron con `next build && next start`, sin 404 ni errores en la consola del navegador.
+- [ ] Las mismas rutas se abrieron en el navegador con `npm run dev`, sin errores en pantalla ni en consola. Hay errores que solo aparecen en modo desarrollo y que `npm run build` no detecta (por ejemplo, un `Link` con `legacyBehavior` dentro de un Server Component).
 - [ ] Si cambia la interfaz, se revisó también en un ancho de celular (375 px).
 - [ ] El PR enlaza su issue con `Closes #N` y alguien distinto a quien lo escribió lo revisó (o, trabajando solo, se releyó el diff completo al día siguiente).
 - [ ] La documentación (README, este archivo) refleja cualquier cambio en cómo se instala, corre o despliega.

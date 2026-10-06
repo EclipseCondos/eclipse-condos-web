@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev": "cd apps/frontend && next dev",
     "build": "cd apps/frontend && next build",
     "start": "cd apps/frontend && next start",
     "lint": "cd apps/frontend && next lint",
@@ -13,13 +13,12 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "next": "16.2.12",
+    "next": "16.3.8",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
-    "concurrently": "^8.2.0",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.3.0"
   }
