@@ -30,7 +30,7 @@
 
 html,
 body {
-  padding: 0;
+  padding-left: 1;
   margin: 0;
   font-family: Futura, "Futura Light", Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;

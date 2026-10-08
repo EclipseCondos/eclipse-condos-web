@@ -3,6 +3,12 @@ import Navbar from '@/components/Navbar/Navbar';
 import TitleUpdater from '@/components/TitleUpdater';
 import styles from '@/styles/Home/home.module.css';
 
+export const viewport = {
+  themeColor: '#000000',
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata = {
   title: {
     default: 'Eclipse Condos - Condominios de Lujo en Playa del Carmen',
@@ -23,8 +29,6 @@ export const metadata = {
     apple: '/images/logo/Eclipse Condos Icon (white).png',
   },
   manifest: '/manifest.json',
-  themeColor: '#000000',
-  viewport: 'width=device-width, initial-scale=1',
   openGraph: {
     title: 'Eclipse Condos - Condominios de Lujo en Playa del Carmen',
     description: 'Condominios de lujo en Mareazul, Playa del Carmen',
@@ -53,7 +57,6 @@ export default function RootLayout({ children }) {
                 playsInline
                 preload="metadata"
                 className={styles.homeVideo}
-                poster="/images/condos/video-poster.jpg" // Imagen de respaldo
             >
                 <source src="/videos/mareazulbackgroundvideo.mp4" type="video/mp4" />
                 <source src="/videos/mareazulbackgroundvideo.MOV" type="video/quicktime" />

@@ -7,11 +7,11 @@
     "libs/*"
   ],
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev": "npm run dev:frontend",
     "build": "cd apps/frontend && next build",
     "start": "cd apps/frontend && next start",
-    "lint": "cd apps/frontend && next lint",
-    "dev:backend": "cd apps/backend && php artisan serve",
+    "lint": "node -e \"console.log('lint pendiente de ESLint setup (P0)')\"",
+    "dev:backend": "node -e \"console.log('Backend Laravel no inicializado todavia (P0).')\"",
     "dev:frontend": "cd apps/frontend && next dev",
     "setup": "npm install"
   },

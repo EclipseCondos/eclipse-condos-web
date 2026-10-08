@@ -1,0 +1,153 @@
+# Cómo trabajamos en eclipse-condos-web
+
+Este archivo es la fuente única de las definiciones del equipo. Las issues lo enlazan en vez de copiarlo.
+
+- [Flujo de trabajo](#flujo-de-trabajo)
+- [Definición de Listo (DoR)](#definición-de-listo-dor)
+- [Definición de Hecho (DoD)](#definición-de-hecho-dod)
+- [Criterios de rechazo generales](#criterios-de-rechazo-generales)
+- [Criterios de salida por hito](#criterios-de-salida-por-hito)
+- [Reglas de negocio](#reglas-de-negocio)
+
+| Término | Aplica a | Dónde vive |
+|---|---|---|
+| Definición de Listo (DoR) | Toda issue, antes de empezarla | Aquí |
+| Criterios de aceptación | Una issue | Sección "Terminada cuando" de cada issue |
+| Definición de Hecho (DoD) | Todo PR, antes de unirlo | Aquí y en la plantilla de PR |
+| Criterios de rechazo | Todo PR (generales) y algunas issues (específicos) | Aquí y en la issue cuando aplica |
+| Criterios de salida | Un hito completo | Aquí |
+| Reglas de negocio | El dominio de Eclipse Condos | Aquí y en la issue cuando aplica |
+
+## Flujo de trabajo
+
+Las ramas siguen el flujo `main` ← `dev` ← rama de cada issue:
+
+- `main` es lo que está publicado. Solo recibe PRs desde `dev`; un chequeo de CI (`main solo desde dev`) rechaza cualquier otro origen.
+- `dev` es la rama de integración y la rama por defecto del repo. Ahí llegan todas las features.
+- Cada issue vive en su propia rama, que sale de `dev` y vuelve a `dev`.
+
+### Trabajar una issue
+
+1. Tomar la issue de mayor prioridad del hito actual que cumpla la DoR.
+2. Actualizar `dev` y crear la rama desde ahí: `tipo/issue-N-descripcion-corta` (por ejemplo `fix/issue-22-submenu-404`).
+
+   ```bash
+   git checkout dev
+   git pull origin dev
+   git checkout -b fix/issue-22-submenu-404
+   ```
+
+   Con commits que siguen [Conventional Commits](https://www.conventionalcommits.org/es/): `fix:` corrige algo roto, `feat:` agrega algo nuevo, `refactor:` cambia código sin cambiar comportamiento, `docs:` y `chore:` para lo demás. Si el remoto avanzó antes de tu primer push, usa `git pull --rebase` (o `git config --global pull.rebase true`) para no generar commits de merge sin contenido. Una vez que la rama ya está en un PR, actualízala con `git merge origin/dev`, no con rebase, para no tener que hacer force push.
+
+3. Abrir un PR en borrador **hacia `dev`** con `Closes #N` en la descripción. La issue se cierra sola al unirse a `dev` porque es la rama por defecto.
+4. Pasar el PR a "Ready for review" cuando cumpla la DoD. Se une con merge a `dev`.
+5. Actualizar la tarea de Notion ligada a la issue.
+
+### Publicar (dev → main)
+
+Cuando `dev` tiene un conjunto de cambios probado (por ejemplo, al cerrar un hito o antes de desplegar):
+
+1. Abrir un PR de `dev` hacia `main` titulado `Release: <qué incluye>`, con la lista de issues que entran.
+2. Revisar el sitio desde `dev` con `npm ci && npm run build && npm start`.
+3. Unir con merge (sin squash, para que `main` y `dev` compartan historia).
+
+### Si `dev` se queda atrás de `main`
+
+Pasa si algo entró a `main` por otro camino (por ejemplo, un arreglo urgente). Se trae `main` a `dev` con merge, nunca con `reset --hard` ni force push:
+
+```bash
+git fetch origin
+git checkout dev
+git pull origin dev
+git merge origin/main
+git push origin dev
+```
+
+## Definición de Listo (DoR)
+
+Una issue se puede empezar cuando:
+
+- [ ] El título dice qué cambia, no solo qué está mal.
+- [ ] Tiene contexto suficiente para empezar sin preguntar (archivos, rutas, capturas).
+- [ ] Tiene criterios de aceptación verificables en "Terminada cuando".
+- [ ] Sus dependencias están cerradas, o no tiene la etiqueta `bloqueado`.
+- [ ] Tiene hito, Priority y Effort.
+- [ ] Cabe en una tarde de trabajo (unas 3 h). Si no, se divide antes de empezar.
+- [ ] Si necesita contenido (fotos, textos, enlaces), el contenido ya existe.
+- [ ] Si tiene bloque agendado en Notion, la tarea de Notion enlaza a la issue y la issue a la tarea.
+
+## Definición de Hecho (DoD)
+
+Un PR se puede unir cuando:
+
+- [ ] Todos los criterios de aceptación de la issue están marcados.
+- [ ] `npm ci && npm run build` pasa desde un clon limpio y el chequeo `CI / build` del PR está en verde. Usa la versión de Node de `.nvmrc` (con nvm: `nvm use`).
+- [ ] El build no muestra advertencias nuevas.
+- [ ] Las rutas que toca el cambio se probaron con `next build && next start`, sin 404 ni errores en la consola del navegador.
+- [ ] Las mismas rutas se abrieron en el navegador con `npm run dev`, sin errores en pantalla ni en consola. Hay errores que solo aparecen en modo desarrollo y que `npm run build` no detecta (por ejemplo, un `Link` con `legacyBehavior` dentro de un Server Component).
+- [ ] Si cambia la interfaz, se revisó también en un ancho de celular (375 px).
+- [ ] El PR enlaza su issue con `Closes #N` y alguien distinto a quien lo escribió lo revisó (o, trabajando solo, se releyó el diff completo al día siguiente).
+- [ ] La documentación (README, este archivo) refleja cualquier cambio en cómo se instala, corre o despliega.
+- [ ] La tarea de Notion ligada quedó actualizada.
+
+## Criterios de rechazo generales
+
+Un PR se devuelve sin revisar a fondo si:
+
+- El build falla.
+- No enlaza ninguna issue, o mezcla varias issues sin explicar por qué.
+- Agrega texto o enlaces de ejemplo en lo que toca: `placeholder`, `example.com`, `your-*-domain.com`, `lorem ipsum`.
+- Deja un enlace interno que da 404.
+- Versiona `node_modules`, `.DS_Store`, archivos de entorno (`.env*`) o credenciales.
+- Agrega un archivo de más de 5 MB.
+- Cambia versiones de dependencias a `"latest"` o a un rango amplio.
+
+Las issues pueden agregar criterios de rechazo propios.
+
+## Criterios de salida por hito
+
+Un hito se da por terminado solo cuando se cumple todo lo de su lista. Si una issue del hito no se hace, se mueve de hito de forma explícita, no se deja abierta.
+
+### Hito 1 · Reemplazo de Wix (31 oct 2026)
+
+- [ ] Todas las issues del hito están cerradas o movidas a otro hito con una nota del porqué.
+- [ ] El sitio nuevo tiene todo lo que tenía Wix: Inicio, 5 departamentos con galería, Amenidades, FAQ y enlace a Instagram.
+- [ ] Los 5 botones de reserva abren su anuncio correcto de Airbnb.
+- [ ] Todas las URLs del sitio de Wix responden 301 a su equivalente nuevo.
+- [ ] La vista previa en un subdominio se revisó con el cliente y la aprobó antes de cambiar el DNS.
+- [ ] `eclipsecondosmexico.com` abre el sitio nuevo con HTTPS.
+- [ ] No hay 404 internos ni recursos faltantes en la consola.
+- [ ] El plan de Wix se da de baja solo después de que el dominio ya sirve el sitio nuevo.
+
+### Hito 2 · Disponibilidad desde Airbnb (iCal) (20 nov 2026)
+
+- [ ] Cada uno de los 5 departamentos muestra su disponibilidad leída del calendario iCal de su anuncio.
+- [ ] Si la lectura de un calendario falla, ese departamento no muestra fechas como disponibles.
+- [ ] La página indica cuándo se actualizó la disponibilidad por última vez.
+- [ ] El sitio sigue sin aceptar reservas: el botón lleva a Airbnb.
+
+### Hito 3 · Reservaciones y panel de administrador (18 dic 2026)
+
+- [ ] El cliente entra al panel con su propia cuenta; nadie más puede ver los datos de huéspedes.
+- [ ] Las reservaciones del Excel actual están migradas y el cliente confirmó que coinciden.
+- [ ] El cliente usó el panel en lugar del Excel durante al menos una semana sin volver al Excel.
+
+### Hito 4 · Reserva directa con pagos (sin fecha)
+
+No empieza hasta que el cliente lo pida y se haya decidido un channel manager para sincronizar con Airbnb en los dos sentidos. Sus criterios de salida se escriben al abrirlo.
+
+## Reglas de negocio
+
+Restricciones del negocio que el código tiene que respetar. Si una regla cambia, se cambia aquí primero.
+
+| # | Regla |
+|---|---|
+| RN-1 | Eclipse Condos tiene exactamente 5 departamentos en Mareazul, Playa del Carmen: Arena, Sol, Luna, Mar y Tierra. Toda lista, menú o sitemap muestra los 5. |
+| RN-2 | Hasta el hito 4, el sitio no toma reservas ni pagos: reservar siempre lleva al anuncio de Airbnb del departamento, en una pestaña nueva. |
+| RN-3 | Cada departamento enlaza a su propio anuncio. IDs de Airbnb verificados el 1 oct 2026: Arena `1551031977485342260`, Sol `51634042`, Luna `53782006`, Mar `926939128885187909`, Tierra `938736936525125853`. |
+| RN-4 | La única red social oficial es Instagram: `instagram.com/eclipsecondos/`. No se agregan íconos de redes que no existan. |
+| RN-5 | El sitio está en español de México (`lang="es"`, `locale: es_MX`). |
+| RN-6 | La capacidad, camas, baños y reglas de cada departamento las define el cliente. Si un dato no se tiene, no se muestra; no se inventa. |
+| RN-7 | Las URLs públicas de un departamento son `/departamentos/eclipse-<nombre>`. Una URL pública que cambie necesita una redirección 301. |
+| RN-8 | El hosting y el dominio quedan a nombre del cliente, no del desarrollador. |
+| RN-9 | A partir del hito 2, el sitio nunca muestra como disponible una fecha que Airbnb tiene ocupada; ante la duda, se muestra como no disponible. |
