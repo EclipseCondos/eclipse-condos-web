@@ -57,7 +57,6 @@ export default function RootLayout({ children }) {
                 playsInline
                 preload="metadata"
                 className={styles.homeVideo}
-                poster="/images/condos/video-poster.jpg" // Imagen de respaldo
             >
                 <source src="/videos/mareazulbackgroundvideo.mp4" type="video/mp4" />
                 <source src="/videos/mareazulbackgroundvideo.MOV" type="video/quicktime" />
