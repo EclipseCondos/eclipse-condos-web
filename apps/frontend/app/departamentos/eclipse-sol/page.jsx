@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { usePageTitle } from '../../../src/hooks/usePageTitle';
-import styles from '../Departamento.module.css';
+import styles from '@/styles/Departamentos.module.css';
 
 const EclipseSolPage = () => {
   const [currentSection, setCurrentSection] = useState('cocina');
