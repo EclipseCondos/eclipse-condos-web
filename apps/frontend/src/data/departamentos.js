@@ -10,7 +10,7 @@ export const departamentos = [
         baños: 3,
         caracteristicas: ['Cocina equipada', 'Sala de estar amplia', 'Balcón con vista panorámica', 'Estacionamiento privado'],
         airbnb: 'https://www.airbnb.com/h/casaeclipsedesol',
-        whatsapp: 'https://wa.me/8182805754',
+        whatsapp: 'https://wa.me/528182805754',
         areas: [
             { carpeta: 'sala', titulo: 'Sala de estar', descripcion: 'Espacio amplio y luminoso con mobiliario moderno y cómodo.'},
             { carpeta: ['recamara-1', 'bano-1'], titulo: 'Recámara principal', descripcion: 'Espacio tranquilo con dos camas queen.'},
@@ -33,7 +33,7 @@ export const departamentos = [
         baños: 3,
         caracteristicas: ['Cocina equipada', 'Sala de estar amplia', 'Balcón con vista panorámica', 'Estacionamiento privado'],
         airbnb: 'https://www.airbnb.com/h/casaeclipsedeluna',
-        whatsapp: 'https://wa.me/8182805754',
+        whatsapp: 'https://wa.me/528182805754',
         areas: [
             { carpeta: 'sala', titulo: 'Sala de estar', descripcion: 'Espacio amplio y luminoso con mobiliario moderno y cómodo.'},
             { carpeta: ['recamara-1', 'bano-1'], titulo: 'Recámara principal', descripcion: 'Espacio tranquilo con dos camas queen.'},
@@ -56,7 +56,7 @@ export const departamentos = [
         baños: 3,
         caracteristicas: ['Cocina equipada', 'Sala de estar amplia', 'Balcón con vista panorámica', 'Estacionamiento privado'],
         airbnb: 'https://www.airbnb.com/h/casaeclipsedemar',
-        whatsapp: 'https://wa.me/8182805754',
+        whatsapp: 'https://wa.me/528182805754',
         areas: [
             { carpeta: 'sala', titulo: 'Sala de estar', descripcion: 'Espacio amplio y luminoso con mobiliario moderno y cómodo.'},
             { carpeta: ['recamara-1', 'bano-1'], titulo: 'Recámara principal', descripcion: 'Espacio tranquilo con dos camas queen.'},
@@ -79,7 +79,7 @@ export const departamentos = [
         baños: 6,
         caracteristicas: ['2 Cocinas equipadas', '2 Salas de estar amplias', '2 Balcones con vista panorámica', '2 Estacionamientos privados'],
         airbnb: 'https://www.airbnb.com/h/casaeclipsedetierra',
-        whatsapp: 'https://wa.me/8182805754',
+        whatsapp: 'https://wa.me/528182805754',
         areas: [
             { carpeta: 'sala', titulo: 'Sala de estar', descripcion: 'Espacio amplio y luminoso con mobiliario moderno y cómodo.'},
             { carpeta: ['recamara-1', 'bano-1'], titulo: 'Recámara principal', descripcion: 'Espacio tranquilo con dos camas queen.'},
@@ -102,7 +102,7 @@ export const departamentos = [
         baños: 6,
         caracteristicas: ["Playa privada", "Terraza con vista al mar", "Cocina completamente equipada", "WiFi de alta velocidad", "Aire acondicionado", "Decoración tropical moderna"],
         airbnb: "https://www.airbnb.com/h/casaeclipsedearena",
-        whatsapp: "https://wa.me/8182805754",
+        whatsapp: "https://wa.me/528182805754",
         areas: [
             { carpeta: 'cocina-comedor', titulo: 'Cocina/Comedor', descripcion: 'Cocina moderna con acabados naturales y vista a la playa.'},
             // { carpeta: 'entrada', titulo: 'Recibidor', descripcion: 'Amplio recibidor con texturas de arena y acceso a la terraza.'},
