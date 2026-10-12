@@ -1,4 +1,5 @@
 export const departamentos = [
+    // En la descripción de cada departamento, hay que especificar mejor la descripción junto con el cliente, ya que en este momento no es muy precisa y no refleja la experiencia que se quiere transmitir. Además, se debe incluir información sobre la ubicación, las vistas y los servicios disponibles en cada departamento.
     {
         slug: 'eclipse-sol',
         carpeta: 'sol',
@@ -8,7 +9,7 @@ export const departamentos = [
         capacidad: '4-8 personas',
         recamaras: 2,
         baños: 3,
-        caracteristicas: ['Cocina equipada', 'Sala de estar amplia', 'Balcón con vista panorámica', 'Estacionamiento privado'],
+        caracteristicas: ["Acceso a la playa exclusiva del complejo", "Cocina equipada", "Sala de estar amplia", "Balcón con vista panorámica", "Estacionamiento privado"],
         airbnb: 'https://www.airbnb.com/h/casaeclipsedesol',
         whatsapp: 'https://wa.me/528182805754',
         areas: [
@@ -31,7 +32,7 @@ export const departamentos = [
         capacidad: '4-8 personas',
         recamaras: 2,
         baños: 3,
-        caracteristicas: ['Cocina equipada', 'Sala de estar amplia', 'Balcón con vista panorámica', 'Estacionamiento privado'],
+        caracteristicas: ["Acceso a la playa exclusiva del complejo", "Cocina equipada", "Sala de estar amplia", "Balcón con vista panorámica", "Estacionamiento privado"],
         airbnb: 'https://www.airbnb.com/h/casaeclipsedeluna',
         whatsapp: 'https://wa.me/528182805754',
         areas: [
@@ -54,7 +55,7 @@ export const departamentos = [
         capacidad: '4-8 personas',
         recamaras: 2,
         baños: 3,
-        caracteristicas: ['Cocina equipada', 'Sala de estar amplia', 'Balcón con vista panorámica', 'Estacionamiento privado'],
+        caracteristicas: ["Acceso a la playa exclusiva del complejo", "Cocina equipada", "Sala de estar amplia", "Balcón con vista panorámica", "Estacionamiento privado"],
         airbnb: 'https://www.airbnb.com/h/casaeclipsedemar',
         whatsapp: 'https://wa.me/528182805754',
         areas: [
@@ -77,7 +78,7 @@ export const departamentos = [
         capacidad: '8-16 personas',
         recamaras: 4,
         baños: 6,
-        caracteristicas: ['2 Cocinas equipadas', '2 Salas de estar amplias', '2 Balcones con vista panorámica', '2 Estacionamientos privados'],
+        caracteristicas: ["Acceso a la playa exclusiva del complejo", "2 Cocinas equipadas", "2 Salas de estar amplias", "2 Balcones con vista panorámica", "2 Estacionamientos privados"],
         airbnb: 'https://www.airbnb.com/h/casaeclipsedetierra',
         whatsapp: 'https://wa.me/528182805754',
         areas: [
@@ -100,7 +101,7 @@ export const departamentos = [
         capacidad: "8-16 personas",
         recamaras: 4,
         baños: 6,
-        caracteristicas: ["Playa privada", "Terraza con vista al mar", "Cocina completamente equipada", "WiFi de alta velocidad", "Aire acondicionado", "Decoración tropical moderna"],
+        caracteristicas: ["Acceso a la playa exclusiva del complejo", "Terraza con vista al mar", "Cocina completamente equipada", "WiFi de alta velocidad", "Aire acondicionado", "Decoración tropical moderna"],
         airbnb: "https://www.airbnb.com/h/casaeclipsedearena",
         whatsapp: "https://wa.me/528182805754",
         areas: [
