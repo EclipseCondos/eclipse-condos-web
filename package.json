@@ -2,6 +2,7 @@
   "name": "eclipse-condos-web",
   "version": "1.0.0",
   "private": true,
+  "engines": {"node": ">20.0.0 <21.0.0"},
   "scripts": {
     "dev": "cd apps/frontend && next dev",
     "build": "cd apps/frontend && next build",
