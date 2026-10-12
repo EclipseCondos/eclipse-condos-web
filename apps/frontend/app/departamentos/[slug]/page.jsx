@@ -89,6 +89,17 @@ export default async function Pagina({ params }) {
                 <span>Reservar en Airbnb</span>
                 <span className={styles.buttonIcon}>🏠</span>
               </a>
+              {depto.whatsapp && (
+                <a
+                  href={`${depto.whatsapp}?text=${encodeURIComponent(`Hola, me interesa el departamento ${depto.nombre}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.secondaryButton}
+                >
+                  <span>Contactar por WhatsApp</span>
+                  <span className={styles.buttonIcon}>💬</span>
+                </a>
+              )}
             </div>
           </div>
         </section>
