@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { usePageTitle } from '../../../src/hooks/usePageTitle';
-import styles from '../Departamento.module.css';
+import styles from '@/styles/Departamentos.module.css';
 
 const EclipseArenaPage = () => {
   const [currentSection, setCurrentSection] = useState('cocina');
@@ -238,7 +238,7 @@ const EclipseArenaPage = () => {
             </p>
             <div className={styles.ctaButtons}>
               <a 
-                href="https://www.airbnb.com/rooms/arena-placeholder" 
+                href="http://airbnb.com/h/casaeclipsedearena" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={styles.primaryButton}
