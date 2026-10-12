@@ -3,58 +3,20 @@ import React from 'react';
 import Link from 'next/link';
 import { usePageTitle } from '../../src/hooks/usePageTitle';
 import styles from '@/styles/Departamentos.module.css';
+import { departamentos } from '@/data/departamentos';
+
+// Fondo de cada tarjeta del listado
+const colores = {
+  luna: 'linear-gradient(135deg, #1e293b, #334155)',
+  sol: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
+  mar: 'linear-gradient(135deg, #0ea5e9, #0284c7)',
+  tierra: 'linear-gradient(135deg, #059669, #047857)',
+  arena: 'linear-gradient(135deg, #d97706, #b45309)'
+};
 
 const DepartamentosPage = () => {
   // Usar el hook para manejar el título automáticamente
   usePageTitle();
-
-  const departamentos = [
-    {
-      id: 'luna',
-      name: 'Eclipse Luna',
-      description: 'Elegancia nocturna con vistas espectaculares al mar',
-      route: '/departamentos/eclipse-luna',
-      icon: '🌙',
-      color: 'linear-gradient(135deg, #1e293b, #334155)',
-      accent: '#60a5fa'
-    },
-    {
-      id: 'sol',
-      name: 'Eclipse Sol',
-      description: 'Energía radiante y espacios llenos de luz natural',
-      route: '/departamentos/eclipse-sol',
-      icon: '☀️',
-      color: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
-      accent: '#f97316'
-    },
-    {
-      id: 'mar',
-      name: 'Eclipse Mar',
-      description: 'Serenidad costera con acceso directo a la playa',
-      route: '/departamentos/eclipse-mar',
-      icon: '🌊',
-      color: 'linear-gradient(135deg, #0ea5e9, #0284c7)',
-      accent: '#06b6d4'
-    },
-    {
-      id: 'tierra',
-      name: 'Eclipse Tierra',
-      description: 'Conexión natural con jardines y espacios verdes',
-      route: '/departamentos/eclipse-tierra',
-      icon: '🌿',
-      color: 'linear-gradient(135deg, #059669, #047857)',
-      accent: '#10b981'
-    },
-    {
-      id: 'arena',
-      name: 'Eclipse Arena',
-      description: 'Calidez y confort en armonía con la naturaleza',
-      route: '/departamentos/eclipse-arena',
-      icon: '🏖️',
-      color: 'linear-gradient(135deg, #d97706, #b45309)',
-      accent: '#ea580c'
-    }
-  ];
 
   return (
     <div className={styles.departamentosPage}>
@@ -128,15 +90,15 @@ const DepartamentosPage = () => {
           
           <div className={styles.departmentsGrid}>
             {departamentos.map((depto) => (
-              <Link href={depto.route} key={depto.id} className={styles.departmentCard}>
-                <div 
+              <Link href={`/departamentos/${depto.slug}`} key={depto.slug} className={styles.departmentCard}>
+                <div
                   className={styles.cardBackground}
-                  style={{ background: depto.color }}
+                  style={{ background: colores[depto.carpeta] }}
                 ></div>
                 <div className={styles.cardContent}>
-                  <div className={styles.cardIcon}>{depto.icon}</div>
-                  <h3 className={styles.cardTitle}>{depto.name}</h3>
-                  <p className={styles.cardDescription}>{depto.description}</p>
+                  <div className={styles.cardIcon}>{depto.icono}</div>
+                  <h3 className={styles.cardTitle}>{depto.nombre}</h3>
+                  <p className={styles.cardDescription}>{depto.descripcion}</p>
                   <div className={styles.cardButton}>
                     <span>Explorar</span>
                     <span className={styles.arrow}>→</span>
