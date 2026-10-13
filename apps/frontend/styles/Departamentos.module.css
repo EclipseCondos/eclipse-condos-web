@@ -515,8 +515,14 @@
   /* Paleta de la página (misma base que styles/Departamentos.module.css) */
   --bg-primary: rgba(15, 23, 42, 0.6);
   --bg-secondary: rgba(30, 41, 59, 0.6);
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --panel-bg: rgba(255, 255, 255, 0.88);
+  --panel-border: rgba(255, 255, 255, 0.95);
+  --chip-bg: rgba(15, 23, 42, 0.05);
+  --chip-border: rgba(15, 23, 42, 0.1);
+  --whatsapp: #25d366;
+  --whatsapp-hover: #1ebe5a;
   --accent-primary: var(--accent-blue);
   --accent-primary-hover: #3b82f6;
   --accent-secondary: var(--accent-cyan);
@@ -538,12 +544,12 @@
 .header {
   text-align: center;
   padding: 60px 0;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--panel-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   margin-bottom: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--panel-border);
 }
 
 .headerContent {
@@ -569,7 +575,7 @@
   font-weight: 700;
   color: var(--text-primary);
   margin: 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
 }
 
 .description {
@@ -590,10 +596,10 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--chip-bg);
   padding: 12px 20px;
   border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--chip-border);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
@@ -602,56 +608,15 @@
   font-size: 1.2rem;
 }
 
-/* Navigation */
-.sectionNav {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.navButton {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--text-primary);
-  padding: 12px 24px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
-.navButton:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.navButton.active {
-  background: var(--accent-primary);
-  color: white;
-  border-color: var(--accent-primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
 /* Gallery Section */
 .gallerySection {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--panel-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 40px;
   margin-bottom: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--panel-border);
 }
 
 .departmentPage .sectionHeader {
@@ -664,7 +629,7 @@
   font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 15px 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
 }
 
 .sectionDescription {
@@ -674,6 +639,51 @@
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto;
+}
+
+/* Area Carousel */
+.areaCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.departmentPage .areaCarousel .sectionTitle {
+  margin: 0;
+  min-width: 0;
+}
+
+.areaButton {
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.areaButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.areaCounter {
+  display: inline-block;
+  margin: 10px 0 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .gallery {
@@ -779,13 +789,13 @@
 
 /* Features Section */
 .departmentPage .featuresSection {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--panel-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 40px;
   margin-bottom: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--panel-border);
 }
 
 .featuresTitle {
@@ -794,7 +804,7 @@
   color: var(--text-primary);
   margin: 0 0 30px 0;
   text-align: center;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
 }
 
 .featuresList {
@@ -810,9 +820,9 @@
   align-items: center;
   gap: 12px;
   padding: 15px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--chip-bg);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--chip-border);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
@@ -825,13 +835,13 @@
 
 /* CTA Section */
 .departmentPage .ctaSection {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--panel-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 60px 40px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--panel-border);
 }
 
 .departmentPage .ctaContent {
@@ -844,7 +854,7 @@
   font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 15px 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: none;
 }
 
 .ctaDescription {
@@ -891,13 +901,14 @@
 }
 
 .departmentPage .secondaryButton {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--whatsapp);
+  color: white;
+  border-color: var(--whatsapp);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .departmentPage .secondaryButton:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--whatsapp-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
@@ -945,14 +956,14 @@
     padding: 10px 16px;
   }
 
-  .sectionNav {
-    gap: 8px;
-    padding: 15px;
+  .areaCarousel {
+    gap: 12px;
   }
 
-  .navButton {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+  .areaButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
 
   .gallerySection {
@@ -1061,14 +1072,14 @@
     gap: 15px;
   }
 
-  .sectionNav {
-    gap: 5px;
-    padding: 12px;
+  .areaCarousel {
+    gap: 8px;
   }
 
-  .navButton {
-    padding: 8px 16px;
-    font-size: 0.85rem;
+  .areaButton {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
   }
 
   .departmentPage .sectionTitle {
