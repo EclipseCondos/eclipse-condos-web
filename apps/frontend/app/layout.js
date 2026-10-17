@@ -56,11 +56,11 @@ export default function RootLayout({ children }) {
                 loop
                 playsInline
                 preload="metadata"
+                poster="/videos/mareazul-poster.webp"
                 className={styles.homeVideo}
             >
-                <source src="/videos/mareazulbackgroundvideo.mp4" type="video/mp4" />
-                <source src="/videos/mareazulbackgroundvideo.MOV" type="video/quicktime" />
-                Tu navegador no soporta el elemento video.
+                {/* H.264 a 720p sin audio: lo reproduce cualquier navegador (el original era HEVC de 31 MB) */}
+                <source src="/videos/mareazul-720.mp4" type="video/mp4" />
             </video>
         <main>{children}</main>
       </body>

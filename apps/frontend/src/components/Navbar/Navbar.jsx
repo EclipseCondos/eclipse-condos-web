@@ -30,11 +30,14 @@ const Navbar = () => {
     return link.dropdownItems.some((item) => pathname === item.href);
   };
 
-  // Initialize dropdowns that should be open
+  // Initialize dropdowns that should be open.
+  // Solo en el menú hamburguesa (≤768px, como en Navbar.module.css): en escritorio
+  // el submenú flotaría abierto encima de la página; ahí se abre con hover.
   useEffect(() => {
     const initialDropdowns = {};
+    const esMenuMovil = window.matchMedia('(max-width: 768px)').matches;
     navLinks.forEach(link => {
-      if (isDropdownOpenByDefault(link)) {
+      if (esMenuMovil && isDropdownOpenByDefault(link)) {
         initialDropdowns[link.name] = true;
       }
     });
