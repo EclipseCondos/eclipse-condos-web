@@ -1,0 +1,1256 @@
+{
+ "url": "http://localhost:3000/departamentos/eclipse-luna",
+ "at": "2026-10-16T17:17:20.932Z",
+ "allow": [
+  "glass",
+  "button-fx"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 28,
+    "css": 4,
+    "transitions": 23,
+    "scripted": 1,
+    "videos": 2,
+    "playingVideos": 2
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 6524,
+     "screens": 7.2,
+     "words": 188,
+     "img": 6,
+     "video": 2,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 7,
+     "videoCount": 2,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "complejo-01.webp",
+      "complejo-08.webp",
+      "complejo-14.webp",
+      "sala-01.avif",
+      "complejo-23.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Luna",
+     "words": 1,
+     "chars": 4,
+     "lines": 1,
+     "size": 187.2,
+     "vw": 13,
+     "font": "Switzer",
+     "weight": 600,
+     "tracking": -0.04,
+     "leading": 0.95,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.28,
+     "top": 501,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Luna",
+     "words": 1,
+     "lines": 1,
+     "size": 187.2,
+     "font": "Switzer"
+    },
+    "headings": [
+     {
+      "text": "Luna",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 187.2,
+      "vw": 13,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.28,
+      "top": 501,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Recorre la casa",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 64,
+      "vw": 4.4,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.39,
+      "top": 3940,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Quédate en Luna",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 64,
+      "vw": 4.4,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.32,
+      "top": 5260,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "¿Dudas antes de reservar?",
+      "words": 4,
+      "chars": 25,
+      "lines": 2,
+      "size": 64,
+      "vw": 4.4,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.31,
+      "top": 5904,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Eclipse",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 403.2,
+      "vw": 28,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.05,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.97,
+      "top": 6298,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 5,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Switzer",
+       "share": 0.89,
+       "mono": false
+      },
+      {
+       "family": "Futura",
+       "share": 0.11,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      18,
+      19,
+      26,
+      64,
+      187,
+      403
+     ],
+     "sizeCount": 9,
+     "notLoaded": [
+      "Futura"
+     ],
+     "body": {
+      "font": "Switzer",
+      "size": 19,
+      "leading": 1.5,
+      "weight": 500,
+      "tracking": -0.005,
+      "contrast": 12.9
+     },
+     "measureChars": 39,
+     "max": {
+      "size": 403.2,
+      "vw": 28,
+      "font": "Switzer",
+      "text": "Eclipse"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.03,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#000000",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#d5dbe5",
+       "top": 0,
+       "hsl": {
+        "h": 218,
+        "s": 0.24,
+        "l": 0.87
+       }
+      },
+      {
+       "color": "#10181a",
+       "top": 0,
+       "hsl": {
+        "h": 192,
+        "s": 0.24,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#10181a",
+       "share": 0.25
+      },
+      {
+       "color": "#f1f4f5",
+       "share": 0.25
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.22
+      },
+      {
+       "color": "#364244",
+       "share": 0.14
+      },
+      {
+       "color": "#d5dbe5",
+       "share": 0.13
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#10181a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 52,
+     "withShadow": 4,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Reservar en Airbnb",
+      "WhatsApp"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 2,
+     "shadowOverlay": 2,
+     "shadowSamples": [
+      "a.Navbar-module__JjCciG__navButton.Navbar-module__JjCciG__ac → rgba(59, 59, 59, 0.2) 0px 4px 16px 0px",
+      "div.Navbar-module__JjCciG__dropdown → rgba(0, 0, 0, 0.5) 0px 8px 32px 0px"
+     ],
+     "gradients": 1,
+     "scrims": 3,
+     "gradientSamples": [
+      "video.home-module__IHIKaG__homeVideo → linear-gradient(135deg, rgb(15, 23, 42) 0%, rgb(30, 41, 59) 50%, rgb(51, 65, 85) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 3,
+     "hairlineSamples": [
+      "a.Navbar-module__JjCciG__logoLink 172px",
+      "nav.Navbar-module__JjCciG__navbar 1440px",
+      "div.Navbar-module__JjCciG__dropdown 220px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 10,
+     "roundedBoxes": 1,
+     "boxRadius": 15,
+     "squareMedia": 7,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 5,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "video",
+      "ratio": 1
+     },
+     {
+      "type": "video",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 5,
+     "fixed": true,
+     "height": 83,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "inter",
+     "switzer"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 29,
+    "css": 4,
+    "transitions": 24,
+    "scripted": 1,
+    "videos": 2,
+    "playingVideos": 2
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 7230,
+     "screens": 7.1,
+     "words": 188,
+     "img": 6,
+     "video": 2,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 7,
+     "videoCount": 2,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "complejo-01.webp",
+      "complejo-08.webp",
+      "complejo-14.webp",
+      "sala-01.avif",
+      "complejo-23.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Luna",
+     "words": 1,
+     "chars": 4,
+     "lines": 1,
+     "size": 99.8,
+     "vw": 13,
+     "font": "Switzer",
+     "weight": 600,
+     "tracking": -0.04,
+     "leading": 0.95,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.28,
+     "top": 708,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Luna",
+     "words": 1,
+     "lines": 1,
+     "size": 99.8,
+     "font": "Switzer"
+    },
+    "headings": [
+     {
+      "text": "Luna",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 99.8,
+      "vw": 13,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.28,
+      "top": 708,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Recorre la casa",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 45.4,
+      "vw": 5.9,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.39,
+      "top": 4436,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Quédate en Luna",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 45.4,
+      "vw": 5.9,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 5750,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "¿Dudas antes de reservar?",
+      "words": 4,
+      "chars": 25,
+      "lines": 2,
+      "size": 45.4,
+      "vw": 5.9,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 6486,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Eclipse",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 215,
+      "vw": 28,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.05,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.97,
+      "top": 7109,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 5,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Switzer",
+       "share": 0.89,
+       "mono": false
+      },
+      {
+       "family": "Futura",
+       "share": 0.11,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      18,
+      23,
+      45,
+      100,
+      215
+     ],
+     "sizeCount": 6,
+     "notLoaded": [
+      "Futura"
+     ],
+     "body": {
+      "font": "Switzer",
+      "size": 17.9,
+      "leading": 1.5,
+      "weight": 500,
+      "tracking": -0.005,
+      "contrast": 12.9
+     },
+     "measureChars": 39,
+     "max": {
+      "size": 215,
+      "vw": 28,
+      "font": "Switzer",
+      "text": "Eclipse"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.03,
+     "centerShare": 0.11,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#000000",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#d5dbe5",
+       "top": 0,
+       "hsl": {
+        "h": 218,
+        "s": 0.24,
+        "l": 0.87
+       }
+      },
+      {
+       "color": "#10181a",
+       "top": 0,
+       "hsl": {
+        "h": 192,
+        "s": 0.24,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#10181a",
+       "share": 0.25
+      },
+      {
+       "color": "#f1f4f5",
+       "share": 0.25
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.22
+      },
+      {
+       "color": "#364244",
+       "share": 0.14
+      },
+      {
+       "color": "#d5dbe5",
+       "share": 0.13
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#10181a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 13,
+     "inHero": 11,
+     "radius": 25,
+     "height": 60,
+     "withShadow": 13,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "INICIO",
+      "AMENIDADES",
+      "FAQ",
+      "DEPARTAMENTOS ▼",
+      "Departamento Luna"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 5,
+     "shadowOverlay": 7,
+     "shadowSamples": [
+      "a.Navbar-module__JjCciG__dropdownItem.Navbar-module__JjCciG_ → rgba(76, 83, 94, 0.4) 0px 4px 20px 0px",
+      "a.Navbar-module__JjCciG__dropdownItem → rgba(0, 0, 0, 0.4) 0px 6px 25px 0px",
+      "a.Navbar-module__JjCciG__dropdownItem → rgba(0, 0, 0, 0.4) 0px 6px 25px 0px",
+      "a.Navbar-module__JjCciG__dropdownItem → rgba(0, 0, 0, 0.4) 0px 6px 25px 0px"
+     ],
+     "gradients": 1,
+     "scrims": 3,
+     "gradientSamples": [
+      "video.home-module__IHIKaG__homeVideo → linear-gradient(135deg, rgb(15, 23, 42) 0%, rgb(30, 41, 59) 50%, rgb(51, 65, 85) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 19,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 7,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 10,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "video",
+      "ratio": 1
+     },
+     {
+      "type": "video",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 56,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "inter",
+     "switzer"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    0.99,
+    0.99,
+    0.99,
+    0.99,
+    1,
+    0.99,
+    0.99,
+    1
+   ],
+   "motion": {
+    "elements": 29,
+    "css": 3,
+    "transitions": 25,
+    "scripted": 1,
+    "videos": 2,
+    "playingVideos": 2
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 6126,
+     "screens": 7.3,
+     "words": 185,
+     "img": 6,
+     "video": 2,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 7,
+     "videoCount": 2,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "complejo-01.webp",
+      "complejo-08.webp",
+      "complejo-14.webp",
+      "sala-01.avif",
+      "complejo-23.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Luna",
+     "words": 1,
+     "chars": 4,
+     "lines": 1,
+     "size": 93.6,
+     "vw": 24,
+     "font": "Switzer",
+     "weight": 600,
+     "tracking": -0.04,
+     "leading": 0.95,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.51,
+     "top": 514,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Luna",
+     "words": 1,
+     "lines": 1,
+     "size": 93.6,
+     "font": "Switzer"
+    },
+    "headings": [
+     {
+      "text": "Luna",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 93.6,
+      "vw": 24,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.51,
+      "top": 514,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Recorre la casa",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3339,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Quédate en Luna",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 33.3,
+      "vw": 8.5,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.62,
+      "top": 5032,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "¿Dudas antes de reservar?",
+      "words": 4,
+      "chars": 25,
+      "lines": 2,
+      "size": 42.9,
+      "vw": 11,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 5410,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Eclipse",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 132.6,
+      "vw": 34,
+      "font": "Switzer",
+      "weight": 600,
+      "tracking": -0.05,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 6051,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 5,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Switzer",
+       "share": 0.89,
+       "mono": false
+      },
+      {
+       "family": "Futura",
+       "share": 0.11,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      15,
+      17,
+      18,
+      20,
+      32,
+      33,
+      43,
+      94,
+      133
+     ],
+     "sizeCount": 10,
+     "notLoaded": [
+      "Futura"
+     ],
+     "body": {
+      "font": "Switzer",
+      "size": 17,
+      "leading": 1.5,
+      "weight": 500,
+      "tracking": -0.005,
+      "contrast": 12.9
+     },
+     "measureChars": 32,
+     "max": {
+      "size": 132.6,
+      "vw": 34,
+      "font": "Switzer",
+      "text": "Eclipse"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.03,
+     "centerShare": 0.11,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#000000",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#d5dbe5",
+       "top": 0,
+       "hsl": {
+        "h": 218,
+        "s": 0.24,
+        "l": 0.87
+       }
+      },
+      {
+       "color": "#10181a",
+       "top": 0,
+       "hsl": {
+        "h": 192,
+        "s": 0.24,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f1f4f5",
+       "share": 0.25
+      },
+      {
+       "color": "#10181a",
+       "share": 0.24
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.22
+      },
+      {
+       "color": "#364244",
+       "share": 0.14
+      },
+      {
+       "color": "#d5dbe5",
+       "share": 0.13
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#10181a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 13,
+     "inHero": 11,
+     "radius": 25,
+     "height": 60,
+     "withShadow": 13,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "INICIO",
+      "AMENIDADES",
+      "FAQ",
+      "DEPARTAMENTOS ▼",
+      "Departamento Luna"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 5,
+     "shadowOverlay": 7,
+     "shadowSamples": [
+      "a.Navbar-module__JjCciG__dropdownItem.Navbar-module__JjCciG_ → rgba(76, 83, 94, 0.4) 0px 4px 20px 0px",
+      "a.Navbar-module__JjCciG__dropdownItem → rgba(0, 0, 0, 0.4) 0px 6px 25px 0px",
+      "a.Navbar-module__JjCciG__dropdownItem → rgba(0, 0, 0, 0.4) 0px 6px 25px 0px",
+      "a.Navbar-module__JjCciG__dropdownItem → rgba(0, 0, 0, 0.4) 0px 6px 25px 0px"
+     ],
+     "gradients": 1,
+     "scrims": 3,
+     "gradientSamples": [
+      "video.home-module__IHIKaG__homeVideo → linear-gradient(135deg, rgb(15, 23, 42) 0%, rgb(30, 41, 59) 50%, rgb(51, 65, 85) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 18,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 7,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 10,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "video",
+      "ratio": 1
+     },
+     {
+      "type": "video",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 56,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "inter",
+     "switzer"
+    ]
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "1 gradient fill(s): video.home-module__IHIKaG__homeVideo → linear-gradient(135deg, rgb(15, 23, 42) 0%, rgb(30, 41, 59) 50%, rgb(51, 65, 85) 100%)",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "2 box-shadow(s) on elements at rest: a.Navbar-module__JjCciG__navButton.Navbar-module__JjCciG__ac → rgba(59, 59, 59, 0.2) 0px 4px 16px 0px | div.Navbar-module__JjCciG__dropdown → rgba(0, 0, 0, 0.5) 0px 8px 32px 0px",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "text-shadow",
+   "width": 1440,
+   "message": "5 text-shadow(s).",
+   "fix": "Remove; fix legibility with a scrim or a different crop.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "3 thin rule(s)/divider line(s): a.Navbar-module__JjCciG__logoLink 172px | nav.Navbar-module__JjCciG__navbar 1440px | div.Navbar-module__JjCciG__dropdown 220px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields."
+  },
+  {
+   "level": "WARN",
+   "id": "font-fallback",
+   "width": 1440,
+   "message": "Typeface(s) declared but not loaded, so a fallback is rendering: Futura",
+   "fix": "Fix the font URL / family name, or the screenshots you are judging are not the design.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 390,
+   "message": "10 different font sizes (13, 15, 17, 18, 20, 32, 33, 43, 94, 133).",
+   "fix": "A page needs about five: display, heading, lead, body, small."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\Dev\\Personal\\WEB\\eclipse-condos-web\\.taste-skill\\inspect\\desktop-fold.jpg",
+   "pages": [
+    "D:\\Dev\\Personal\\WEB\\eclipse-condos-web\\.taste-skill\\inspect\\desktop-page-01.jpg",
+    "D:\\Dev\\Personal\\WEB\\eclipse-condos-web\\.taste-skill\\inspect\\desktop-page-02.jpg"
+   ]
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\Dev\\Personal\\WEB\\eclipse-condos-web\\.taste-skill\\inspect\\tablet-fold.jpg",
+   "pages": [
+    "D:\\Dev\\Personal\\WEB\\eclipse-condos-web\\.taste-skill\\inspect\\tablet-page-01.jpg",
+    "D:\\Dev\\Personal\\WEB\\eclipse-condos-web\\.taste-skill\\inspect\\tablet-page-02.jpg"
+   ]
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\Dev\\Personal\\WEB\\eclipse-condos-web\\.taste-skill\\inspect\\mobile-fold.jpg",
+   "pages": [
+    "D:\\Dev\\Personal\\WEB\\eclipse-condos-web\\.taste-skill\\inspect\\mobile-page-01.jpg"
+   ]
+  }
+ ]
+}
