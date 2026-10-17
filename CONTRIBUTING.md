@@ -108,16 +108,23 @@ Las issues pueden agregar criterios de rechazo propios.
 
 Un hito se da por terminado solo cuando se cumple todo lo de su lista. Si una issue del hito no se hace, se mueve de hito de forma explícita, no se deja abierta.
 
-### Hito 1 · Reemplazo de Wix (31 oct 2026)
+### Hito 1 · Reemplazo de Wix (14 nov 2026)
+
+Incluye la migración de diseño: el sitio se lanza ya con el lenguaje visual nuevo (Liquid Glass).
 
 - [ ] Todas las issues del hito están cerradas o movidas a otro hito con una nota del porqué.
 - [ ] El sitio nuevo tiene todo lo que tenía Wix: Inicio, 5 departamentos con galería, Amenidades, FAQ y enlace a Instagram.
+- [ ] Todas esas vistas y el navbar usan el diseño nuevo; ninguna queda con el estilo viejo.
 - [ ] Los 5 botones de reserva abren su anuncio correcto de Airbnb.
 - [ ] Todas las URLs del sitio de Wix responden 301 a su equivalente nuevo.
 - [ ] La vista previa en un subdominio se revisó con el cliente y la aprobó antes de cambiar el DNS.
 - [ ] `eclipsecondosmexico.com` abre el sitio nuevo con HTTPS.
 - [ ] No hay 404 internos ni recursos faltantes en la consola.
 - [ ] El plan de Wix se da de baja solo después de que el dominio ya sirve el sitio nuevo.
+
+### Después del lanzamiento (sin fecha)
+
+Pendientes P2 que no bloquean el hito 1: limpieza, lint, animaciones y seguridad no bloqueante. Se toman entre los hitos 2 y 3. No tiene criterios de salida propios; cada issue se cierra con su DoD.
 
 ### Hito 2 · Disponibilidad desde Airbnb (iCal) (20 nov 2026)
 
