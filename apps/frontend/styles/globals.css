@@ -51,10 +51,10 @@ body {
   margin: 0;
   font-family: Futura, "Futura Light", Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  overflow-x: hidden; /* Prevenir scroll horizontal completamente */
-  overflow-y: auto; /* Permitir scroll vertical normal */
+  /* clip en vez de hidden y sin height fija: así solo la ventana hace scroll
+     (window.scrollTo, restauración del scroll y position: sticky funcionan) */
+  overflow-x: clip; /* Prevenir scroll horizontal completamente */
   width: 100vw; /* Solución temporal que funciona */
-  height: 100vh; /* Usar viewport height para garantizar altura completa */
   min-width: 100vw; /* Garantizar ancho mínimo */
   min-height: 100vh; /* Garantizar altura mínima */
   /* Prevenir arrastre y bounce en móviles */
@@ -81,7 +81,7 @@ main {
   margin: 0; /* Eliminar márgenes */
   padding: 0; /* Eliminar padding */
   position: relative; /* Posicionamiento fijo */
-  overflow-x: hidden; /* Prevenir scroll horizontal */
+  overflow-x: clip; /* Prevenir scroll horizontal sin romper position: sticky */
 }
 
 a {
