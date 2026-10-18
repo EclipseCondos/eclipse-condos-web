@@ -41,5 +41,8 @@ Las skills compartidas viven en `.agents/skills/<nombre>/SKILL.md` y se versiona
 
 Si tu herramienta no carga skills desde `.agents/skills/` por sí sola, lee el `SKILL.md` correspondiente cuando la tarea lo pida.
 
+## Graphify
+El grafo del código se regenera desde Claude Code con `/graphify .` en la raíz del repo. La salida queda en `graphify-out/`, que no se versiona porque guarda rutas locales: cada quien lo genera en su máquina. Los demás agentes pueden leer `graphify-out/` si existe, pero no lo regeneran.
+
 ## Lo que no se sube
 `node_modules/`, `.next/`, `.env*`, `.claude/` (configuración local), `graphify-out/` (caché de graphify con rutas locales) y la salida del inspector en `.taste-skill/`. Ningún archivo de más de 5 MB.
