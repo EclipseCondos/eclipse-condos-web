@@ -1,0 +1,1 @@
+Las instrucciones de este repo están en `AGENTS.md`, en la raíz. Léelo antes de proponer o escribir código; ahí están el flujo de ramas, los comandos, las reglas de negocio y las skills compartidas en `.agents/skills/`.
