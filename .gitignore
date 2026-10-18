@@ -113,10 +113,8 @@ pids/
 /apps/frontend/public/images/temp/
 /apps/frontend/public/videos/temp/
 
-# Herramientas de agentes (cada quien las instala en su máquina)
-# La skill se reinstala desde skills-lock.json, que sí se versiona.
+# Agentes: .agents/skills/ se versiona (ver AGENTS.md); la configuración local de Claude no
 .claude/
-.agents/
 
 # Salida del inspector de design-taste-frontend; direction.json es la dirección de diseño elegida y sí se versiona
 .taste-skill/*
