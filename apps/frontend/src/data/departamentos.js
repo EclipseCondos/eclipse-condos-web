@@ -3,6 +3,7 @@ export const departamentos = [
     {
         slug: 'eclipse-sol',
         carpeta: 'sol',
+        tono: '#f4d466',
         nombre: 'Eclipse Sol',
         icono: '☀️',
         descripcion: 'Eclipse Sol es un departamento residencial que combina diseño moderno y comodidad, ofreciendo espacios funcionales y elegantes para una vida urbana de calidad.',
@@ -26,6 +27,7 @@ export const departamentos = [
     {
         slug: 'eclipse-luna',
         carpeta: 'luna',
+        tono: '#d5dbe5',
         nombre: 'Eclipse Luna',
         icono: '🌙',
         descripcion: 'Eclipse Luna es un departamento residencial que combina diseño moderno y comodidad, ofreciendo espacios funcionales y elegantes para una vida urbana de calidad.',
@@ -49,6 +51,7 @@ export const departamentos = [
     {
         slug: 'eclipse-mar',
         carpeta: 'mar',
+        tono: '#a6dcd5',
         nombre: 'Eclipse Mar',
         icono: '🌊',
         descripcion: 'Eclipse Mar es un departamento residencial que combina diseño moderno y comodidad, ofreciendo espacios funcionales y elegantes para una vida urbana de calidad.',
@@ -72,6 +75,7 @@ export const departamentos = [
     {
         slug: 'eclipse-tierra',
         carpeta: 'tierra',
+        tono: '#c8d2a6',
         nombre: 'Eclipse Tierra',
         icono: '🌱',
         descripcion: 'Eclipse Tierra es un departamento residencial que combina diseño moderno y comodidad, ofreciendo espacios funcionales y elegantes para una vida urbana de calidad.',
@@ -95,6 +99,7 @@ export const departamentos = [
     {
         slug: "eclipse-arena",
         carpeta: "arena",
+        tono: '#ead7b6',
         nombre: "Eclipse Arena",
         icono: "🏖️",
         descripcion: "Calidez tropical con texturas naturales y vistas a la playa",

@@ -1,0 +1,1299 @@
+/* Página de cada casa. Composición de tasteskill (seed 2053651957) con la interfaz
+   Liquid Glass del sitio. --bg llega con el tono de cada casa (src/data/departamentos.js). */
+.casa {
+  --ink: #10181a;
+  --muted: #364244;
+  --campo: #10181a;
+  --claro: #f1f4f5;
+  --panel: color-mix(in srgb, var(--bg) 50%, #ffffff);
+  --radio: 24px;
+  --m: clamp(16px, 2.2vw, 32px);
+
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2rem, 1.3rem + 3.2vw, 4rem);
+  --step-display: clamp(5.5rem, 13vw, 13rem);
+
+  position: relative;
+  z-index: 2;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Switzer', Inter, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: var(--step-body);
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.casa h1,
+.casa h2,
+.casa h3 {
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+/* ---------- Liquid Glass: botones y controles ---------- */
+.boton,
+.visorControles button,
+.visorControles span,
+.zona button,
+.emergenteBarra button,
+.reversoEnlace,
+.ficha,
+.verAreas,
+.disponibilidad {
+  -webkit-backdrop-filter: blur(20px) saturate(180%); /* taste-skill-ignore: Liquid Glass de la marca */
+  backdrop-filter: blur(20px) saturate(180%); /* taste-skill-ignore: Liquid Glass de la marca */
+  border: 1px solid rgba(255, 255, 255, 0.35); /* taste-skill-ignore: borde del Liquid Glass de la marca */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -1px 0 rgba(255, 255, 255, 0.08); /* taste-skill-ignore: brillo interior del Liquid Glass */
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: var(--step-body);
+  font-weight: 500;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.boton:hover {
+  background: rgba(255, 255, 255, 0.26);
+  transform: translateY(-2px);
+}
+
+.boton:active {
+  transform: scale(0.97);
+}
+
+/* La acción principal: vidrio más lleno, texto oscuro */
+.botonFuerte {
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+}
+
+.botonFuerte:hover {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.boton:focus-visible,
+.cuarto:focus-visible,
+.visorAbrir:focus-visible,
+.visorControles button:focus-visible,
+.zona button:focus-visible,
+.emergenteBarra button:focus-visible,
+.casas a:focus-visible,
+.otras a:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* ---------- Inicio: collage de la casa ---------- */
+.inicio {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  background: var(--bg);
+  color: #fff;
+}
+
+.collage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+}
+
+.collageFoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: entrarFoto 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+.tarjeta:first-child {
+  grid-row: 1 / span 2;
+}
+
+/* Tarjetas que se voltean (solo escritorio): frente la foto, detrás otra casa */
+.tarjeta {
+  position: relative;
+  perspective: 1400px;
+  min-height: 0;
+}
+
+.giro {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.tarjeta[data-volteada] .giro {
+  transform: rotateY(180deg);
+}
+
+@media (hover: hover) and (min-width: 761px) {
+  .tarjeta[data-volteable]:hover .giro {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Con teclado: la tarjeta gira al recibir el foco, para llegar al enlace de atrás */
+@media (min-width: 761px) {
+  .tarjeta[data-volteable]:has(:focus-visible) .giro {
+    transform: rotateY(180deg);
+  }
+}
+
+.cara {
+  position: absolute;
+  inset: 0;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
+
+.reverso {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 14px;
+  padding: clamp(20px, 2vw, 32px);
+  background: var(--tono);
+  color: var(--ink);
+  cursor: default;
+}
+
+.reverso h2 {
+  font-size: var(--step-head);
+}
+
+.reverso p {
+  max-width: 32ch;
+}
+
+.reversoEnlace {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 22px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: rgba(16, 24, 26, 0.08);
+  border-color: rgba(16, 24, 26, 0.14);
+  font-weight: 500;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.reversoEnlace:hover {
+  background: rgba(16, 24, 26, 0.16);
+  transform: translateY(-2px);
+}
+
+/* Scrim neutro: solo la franja de abajo, donde va el texto */
+.inicio::after {
+  content: '';
+  position: absolute;
+  inset: 40% 50% 0 0; /* solo sobre la foto grande, para no oscurecer las tarjetas */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0)); /* taste-skill-ignore: scrim neutro sobre fotos */
+  pointer-events: none;
+}
+
+.inicioTexto {
+  position: absolute;
+  z-index: 1;
+  left: var(--m);
+  /* Solo sobre la foto grande (la mitad izquierda), para no tapar las tarjetas */
+  right: calc(50% + var(--m));
+  bottom: clamp(32px, 6svh, 64px);
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+  /* La caja no atrapa el puntero; solo los botones lo reciben */
+  pointer-events: none;
+}
+
+.nombre {
+  font-size: var(--step-display);
+  margin-left: -0.04em;
+}
+
+/* Ficha del inicio: tarjeta de vidrio con los datos y las características */
+.ficha {
+  width: min(540px, 100%);
+  padding: 20px 24px 22px;
+  border-radius: var(--radio);
+  background: rgba(16, 24, 26, 0.4);
+  color: #fff;
+}
+
+.fichaDatos {
+  display: flex;
+  gap: clamp(24px, 3vw, 40px);
+  margin-bottom: 16px;
+}
+
+/* El número arriba, la etiqueta abajo */
+.fichaDatos div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.fichaDatos dd {
+  font-size: var(--step-head);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.fichaDatos dt {
+  margin-top: 4px;
+  font-size: var(--step-small);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.fichaLista {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+.fichaLista li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.fichaLista li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+  pointer-events: auto;
+}
+
+/* ---------- Las cinco casas (solo teléfono; en escritorio están detrás de las tarjetas) ---------- */
+.familia {
+  display: none;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--m);
+  align-items: start;
+  padding: 160px var(--m);
+}
+
+.familiaTexto {
+  grid-column: 1 / 6;
+  font-size: var(--step-lead);
+  font-weight: 500;
+  line-height: 1.35;
+  max-width: 30ch;
+}
+
+.casas {
+  grid-column: 7 / 13;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+  font-size: var(--step-head);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.casas li {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+/* La muestra de color de cada casa */
+.casas li::before {
+  content: '';
+  flex: none;
+  width: 0.38em;
+  height: 0.38em;
+  border-radius: 50%;
+  background: var(--tono);
+}
+
+.casas li:has(.casaActual)::before {
+  background: var(--ink);
+}
+
+.casas a {
+  color: var(--muted);
+  display: inline-block;
+  transition: transform 160ms ease, color 160ms ease;
+}
+
+.casas a:hover {
+  color: var(--ink);
+  transform: translateX(6px);
+}
+
+.casaActual {
+  color: var(--ink);
+}
+
+/* ---------- El complejo, como telón ---------- */
+.complejo {
+  position: relative;
+}
+
+.telon {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+}
+
+/* Disponibilidad sobre la foto del complejo (maqueta, sin conectar a reservas) */
+.reserva {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* abajo, para no chocar con el logo del navbar (240px) */
+  align-items: flex-start;
+  gap: 16px;
+  padding: 130px var(--m) 110px;
+  pointer-events: none;
+}
+
+.reserva > * {
+  pointer-events: auto;
+}
+
+.disponibilidad {
+  width: min(420px, 100%);
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+  border-radius: var(--radio);
+  background: rgba(16, 24, 26, 0.55);
+  color: #fff;
+}
+
+.disponibilidad h2 {
+  font-size: 2rem;
+}
+
+.disponibilidad p {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.disponibilidad .boton {
+  width: 100%;
+}
+
+.mes {
+  min-height: 250px;
+}
+
+.mesTitulo {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.mesDias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.mesDias span {
+  display: grid;
+  place-items: center;
+  height: 32px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.mesDias .mesSemana {
+  height: 24px;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.mesDias [data-hoy] {
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.telon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Borde de ola: cada foto entra con el canto superior ondulado. La ola se desplaza
+   ligada al scroll (como si se arrastrara el agua) y encima corre una franja de espuma. */
+.telon {
+  --ola-ancho: 900px;
+  --ola-alto: 90px;
+  --ola: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 90' preserveAspectRatio='none'%3E%3Cpath d='M0 45C150 0 300 0 450 45S750 90 900 45V90H0Z'/%3E%3C/svg%3E");
+  -webkit-mask:
+    var(--ola) 0 0 / var(--ola-ancho) var(--ola-alto) repeat-x,
+    linear-gradient(#000 0 0) 0 calc(var(--ola-alto) - 1px) / 100% calc(100% - var(--ola-alto) + 1px) no-repeat; /* taste-skill-ignore: relleno sólido de la máscara, no es un degradado */
+  mask:
+    var(--ola) 0 0 / var(--ola-ancho) var(--ola-alto) repeat-x,
+    linear-gradient(#000 0 0) 0 calc(var(--ola-alto) - 1px) / 100% calc(100% - var(--ola-alto) + 1px) no-repeat; /* taste-skill-ignore: relleno sólido de la máscara, no es un degradado */
+}
+
+.telon::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--ola-alto);
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 90' preserveAspectRatio='none'%3E%3Cpath d='M0 62C150 34 300 34 450 62S750 90 900 62V0H0Z' fill='white' fill-opacity='0.55'/%3E%3C/svg%3E")
+    0 0 / calc(var(--ola-ancho) * 1.4) var(--ola-alto) repeat-x;
+}
+
+@keyframes arrastrarOla {
+  from {
+    -webkit-mask-position: 0 0, 0 calc(var(--ola-alto) - 1px);
+    mask-position: 0 0, 0 calc(var(--ola-alto) - 1px);
+  }
+  to {
+    -webkit-mask-position: calc(var(--ola-ancho) * -1.5) 0, 0 calc(var(--ola-alto) - 1px);
+    mask-position: calc(var(--ola-ancho) * -1.5) 0, 0 calc(var(--ola-alto) - 1px);
+  }
+}
+
+@keyframes espuma {
+  from { background-position: 0 0; }
+  to { background-position: var(--ola-ancho) 0; }
+}
+
+/* Solo donde el navegador sabe ligar animaciones al scroll; en los demás la ola queda fija */
+@supports (animation-timeline: view()) {
+  .telon,
+  .telon::before {
+    animation-duration: 1ms; /* la duración real la marca el scroll */
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+
+  .telon {
+    animation-name: arrastrarOla;
+  }
+
+  .telon::before {
+    animation-name: espuma;
+  }
+}
+
+.pieTelon {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 var(--m) 28px;
+  color: var(--claro);
+  font-size: var(--step-small);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0)); /* taste-skill-ignore: scrim neutro sobre foto */
+}
+
+/* ---------- Recorrido ---------- */
+.recorrido {
+  position: relative;
+  isolation: isolate;
+  overflow: clip; /* clip y no hidden: la franja fija del teléfono sigue funcionando */
+  /* Foto y panel comparten esta altura y se ajustan a la pantalla: la altura sale
+     del alto disponible (menos título y márgenes) sin pasar de lo que permite el
+     ancho, entre 520 y 920 px. La foto es 4:5, así que su ancho es 0.8 × la altura. */
+  --alto-recorrido: clamp(520px, min(100svh - 220px, 48vw), 920px);
+  display: grid;
+  grid-template-columns: auto minmax(0, clamp(440px, 50vw, 760px));
+  grid-template-rows: auto auto;
+  justify-content: center;
+  gap: 32px clamp(24px, 4vw, 80px);
+  padding: clamp(56px, 8svh, 112px) var(--m);
+}
+
+.recorridoVideo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* El color de la casa delante del video, un poco transparente */
+.recorrido::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--bg);
+  opacity: 0.84;
+}
+
+/* En escritorio no existe como caja; en el teléfono es la franja fija (título + foto) */
+.cabeza {
+  display: contents;
+}
+
+.recorridoTitulo {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  font-size: var(--step-head);
+}
+
+.visor {
+  grid-column: 1;
+  grid-row: 2;
+  position: relative;
+}
+
+.visorAbrir {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+.visorFoto {
+  width: 100%;
+  height: var(--alto-recorrido);
+  width: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  animation: aparecer 300ms ease both;
+}
+
+/* Controles de vidrio encima de la foto */
+.visorControles {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: var(--step-small);
+  font-variant-numeric: tabular-nums;
+}
+
+.visorControles button,
+.visorControles span {
+  min-height: 48px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.visorControles span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.visorControles button {
+  min-width: 48px;
+  font-size: var(--step-body);
+  cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.visorControles .ampliar {
+  padding: 0 18px;
+  font-size: var(--step-small);
+  font-weight: 500;
+}
+
+.visorControles button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.visorControles button:active,
+.zona button:active {
+  transform: scale(0.94);
+}
+
+/* Solo teléfono (ver la regla de 760px) */
+.verAreas {
+  display: none;
+}
+
+/* El panel: un tono más claro que la casa, para separar el texto del fondo */
+.panel {
+  grid-column: 2;
+  grid-row: 2;
+  height: var(--alto-recorrido);
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border-radius: var(--radio);
+  padding: clamp(24px, 2.6vw, 40px);
+}
+
+.zona {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.zona button {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(16, 24, 26, 0.08);
+  border-color: rgba(16, 24, 26, 0.14);
+  color: var(--ink);
+  font-size: var(--step-body);
+  cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.zona button:hover {
+  background: rgba(16, 24, 26, 0.14);
+}
+
+.zonaNombre {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.zonaNombre h3 {
+  font-size: var(--step-lead);
+}
+
+.zonaNombre span {
+  display: block;
+  margin-top: 6px;
+  font-size: var(--step-small);
+  color: var(--muted);
+}
+
+.zonaTexto {
+  margin: 20px 0 28px;
+  min-height: 3em;
+}
+
+.cuartos {
+  list-style: none;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto; /* si una casa tiene muchas áreas, la lista se desplaza dentro del panel */
+}
+
+.cuarto {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  background: none;
+  border: 0;
+  border-radius: 999px;
+  color: var(--muted);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.cuarto:hover {
+  background: rgba(16, 24, 26, 0.06);
+  color: var(--ink);
+}
+
+.cuartoActivo .cuarto {
+  background: var(--bg);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.cuartoFotos {
+  font-size: var(--step-small);
+  font-weight: 400;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ventana emergente con la foto completa */
+.emergente {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100svh;
+  max-height: 100svh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-family: inherit;
+}
+
+.emergente[open] {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  align-items: center;
+  animation: aparecer 200ms ease both;
+}
+
+.emergente::backdrop {
+  background: rgba(8, 12, 13, 0.9);
+}
+
+.emergente img {
+  max-width: calc(100vw - 2 * var(--m, 24px));
+  max-height: calc(100svh - 120px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.emergenteBarra {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px clamp(16px, 2.2vw, 32px) 24px;
+  font-size: 0.9375rem;
+}
+
+.emergenteBarra div {
+  display: flex;
+  gap: 8px;
+}
+
+.emergenteBarra button {
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.emergenteBarra .cerrar {
+  padding: 0 20px;
+  font-weight: 500;
+}
+
+/* ---------- Cierre ---------- */
+.cierre {
+  position: relative;
+  height: 90svh;
+  overflow: hidden;
+}
+
+.cierreFoto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  animation: deriva 24s ease-in-out infinite alternate;
+}
+
+.cierreTexto {
+  position: absolute;
+  left: 58%;
+  right: var(--m);
+  bottom: 14svh;
+  color: var(--claro);
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+}
+
+.cierreTitulo {
+  font-size: var(--step-head);
+}
+
+.cierreTexto p {
+  max-width: 40ch;
+}
+
+/* ---------- Pie ---------- */
+/* Pie compacto: invitación y enlaces en una fila, el nombre recortado abajo */
+.pieCasa {
+  position: relative;
+  overflow: hidden;
+  background: var(--campo);
+  color: var(--bg);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto auto;
+  column-gap: var(--m);
+  padding: 120px var(--m) 0;
+}
+
+.invitacion {
+  grid-column: 1 / 8;
+  grid-row: 1;
+  display: grid;
+  gap: 32px;
+  justify-items: start;
+}
+
+.invitacionTitulo {
+  font-size: var(--step-head);
+  max-width: 12ch;
+}
+
+.otras {
+  grid-column: 10 / 13;
+  grid-row: 1;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.otras a {
+  transition: transform 160ms ease;
+}
+
+.otras a:hover {
+  transform: translateX(6px);
+}
+
+.legal {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 72px;
+  font-size: var(--step-small);
+}
+
+.marca {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  font-size: 17vw;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 0.8;
+  white-space: nowrap;
+  margin-left: -0.04em;
+  transform: translateY(30%);
+}
+
+/* ---------- Movimiento ---------- */
+@keyframes aparecer {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes entrarFoto {
+  from { opacity: 0; transform: scale(1.06); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes deriva {
+  from { transform: scale(1); }
+  to { transform: scale(1.08) translateX(-1.5%); }
+}
+
+.casa[data-motion] [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--d, 0ms);
+}
+
+.casa[data-motion] [data-reveal][data-visible] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .casa[data-motion] [data-reveal] {
+    transform: none;
+    transition: opacity 300ms ease;
+  }
+
+  .collageFoto,
+  .cierreFoto,
+  .visorFoto,
+  .emergente[open],
+  .telon,
+  .telon::before {
+    animation: none;
+  }
+
+  .boton:hover,
+  .casas a:hover,
+  .otras a:hover,
+  .visorControles button:hover {
+    transform: none;
+  }
+}
+
+/* ---------- Teléfono ---------- */
+@media (max-width: 760px) {
+  .collage {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr 1fr;
+    gap: 4px;
+  }
+
+  .tarjeta:first-child {
+    grid-row: auto;
+    grid-column: 1 / span 2;
+  }
+
+  .cara {
+    cursor: default;
+  }
+
+  /* En el teléfono el texto cruza varias fotos: la sombra va a todo lo ancho */
+  .inicio::after {
+    inset: 28% 0 0 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.74) 40%, rgba(0, 0, 0, 0)); /* taste-skill-ignore: scrim neutro sobre fotos */
+  }
+
+  .nombre {
+    font-size: 20vw;
+  }
+
+  .inicioTexto {
+    gap: 14px;
+  }
+
+  .ficha {
+    padding: 16px 18px;
+  }
+
+  .fichaDatos {
+    gap: 28px;
+    margin-bottom: 12px;
+  }
+
+  .fichaDatos dd {
+    font-size: 1.75rem;
+  }
+
+  .fichaLista {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    font-size: 0.875rem;
+  }
+
+  .inicioTexto {
+    right: var(--m);
+    bottom: 24px;
+  }
+
+  .acciones {
+    width: 100%;
+  }
+
+  .acciones .boton {
+    flex: 1;
+  }
+
+  /* El botón principal se queda flotando como cápsula de vidrio al bajar */
+  .reservar {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 5;
+    transition: opacity 200ms ease, transform 160ms ease;
+  }
+
+  .acciones:has(.reservar) {
+    padding-bottom: 64px;
+  }
+
+  .casa[data-en-cierre] .reservar {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 200ms ease, visibility 0s linear 200ms;
+  }
+
+  .familia {
+    display: block;
+    padding: 96px var(--m);
+  }
+
+  .familiaTexto {
+    margin-bottom: 40px;
+  }
+
+  .casas {
+    font-size: 2.25rem;
+  }
+
+  .telon {
+    height: max(88svh, 720px);
+    --ola-ancho: 520px;
+    --ola-alto: 56px;
+  }
+
+  .reserva {
+    justify-content: flex-end;
+    align-items: stretch;
+    padding: 90px var(--m) 72px;
+  }
+
+  .disponibilidad {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .mes {
+    min-height: 236px;
+  }
+
+  /* Recorrido en el teléfono: la foto grande a todo lo ancho y el panel de áreas
+     flotando sobre su parte de abajo, en vidrio casi sólido. La foto y el panel
+     comparten la misma celda de la cuadrícula. */
+  .recorrido {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0;
+    padding: 52px var(--m) 50px;
+  }
+
+  .cabeza {
+    display: contents;
+  }
+
+  .recorridoTitulo {
+    grid-row: 1;
+    font-size: 2.25rem;
+    margin-bottom: 20px;
+  }
+
+  .visor {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .visorFoto {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+  }
+
+  /* Con el panel abajo, los controles de la foto suben a la esquina superior */
+  .visorControles {
+    top: 10px;
+    right: 10px;
+    bottom: auto;
+    gap: 6px;
+  }
+
+  .panel {
+    grid-row: 2;
+    grid-column: 1;
+    align-self: end;
+    position: relative;
+    z-index: 1;
+    height: auto;
+    margin: 10px;
+    padding: 14px;
+    border-radius: 20px;
+    background: color-mix(in srgb, var(--panel) 90%, transparent);
+    -webkit-backdrop-filter: blur(24px) saturate(160%); /* taste-skill-ignore: panel de vidrio de la marca */
+    backdrop-filter: blur(24px) saturate(160%); /* taste-skill-ignore: panel de vidrio de la marca */
+  }
+
+  .zona {
+    gap: 10px;
+  }
+
+  .zona button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .zonaNombre h3 {
+    font-size: 1.25rem;
+  }
+
+  .zonaTexto {
+    margin: 10px 2px 12px;
+    min-height: 0;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  .verAreas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    border-radius: 999px;
+    background: rgba(16, 24, 26, 0.08);
+    border-color: rgba(16, 24, 26, 0.14);
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  /* La lista completa: cerrada por defecto, abre dentro del panel */
+  .cuartos {
+    display: none;
+  }
+
+  .cuartos[data-abierta] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    max-height: 40svh;
+    overflow-y: auto;
+  }
+
+  .cuarto {
+    width: auto;
+    min-height: 40px;
+    padding: 0 14px;
+    background: rgba(16, 24, 26, 0.06);
+    font-size: 0.875rem;
+  }
+
+  .cuartoFotos {
+    display: none;
+  }
+
+  /* La foto del cierre se queda fija arriba, por encima, y el texto y el pie pasan
+     por debajo de ella. .cierre desaparece como caja para que la foto pueda pegarse
+     dentro de .final. */
+  .final {
+    position: relative;
+    background: var(--campo);
+  }
+
+  .cierre {
+    display: contents;
+  }
+
+  .cierreFoto {
+    position: sticky;
+    /* Se pega cuando solo queda a la vista su franja de abajo (30% de la pantalla):
+       así sigue arriba, pero el texto, los botones y el pie tienen el resto. */
+    top: -10svh;
+    z-index: 2;
+    display: block;
+    height: 70svh;
+    animation: none;
+  }
+
+  .cierreTexto {
+    position: relative;
+    inset: auto;
+    z-index: 1;
+    background: var(--campo);
+    padding: 40px var(--m) 24px;
+  }
+
+  .pieCasa {
+    z-index: 1;
+  }
+
+  .cierreTexto .boton {
+    width: 100%;
+  }
+
+  .pieCasa {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 128px;
+  }
+
+  .invitacionTitulo {
+    font-size: 11vw;
+  }
+
+  .invitacion .boton {
+    width: 100%;
+  }
+
+  .otras {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 0.9375rem;
+  }
+
+  .legal {
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 24px;
+    margin-top: auto;
+  }
+
+  .marca {
+    font-size: 34vw;
+  }
+}
