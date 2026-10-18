@@ -1,8 +1,8 @@
 # Instrucciones para agentes
 
-Fuente única de instrucciones para cualquier agente que trabaje en este repo (Claude Code, Codex, Gemini CLI, GitHub Copilot). `CLAUDE.md`, `GEMINI.md` y `.github/copilot-instructions.md` solo apuntan a este archivo: si una regla cambia, se cambia aquí.
+Fuente única de instrucciones para cualquier agente que trabaje en este repo (Claude Code, Codex, GitHub Copilot). `CLAUDE.md` y `.github/copilot-instructions.md` solo apuntan a este archivo: si una regla cambia, se cambia aquí.
 
-Comprobado el 18 de octubre de 2026 que Claude Code, Codex y Copilot cargan este archivo solos. Gemini CLI no se ha podido probar: si no cita estas reglas, revisa `GEMINI.md`.
+Comprobado el 18 de octubre de 2026 que Claude Code, Codex y Copilot cargan este archivo solos.
 
 ## Proyecto
 Sitio de Eclipse Condos: cinco departamentos (Arena, Sol, Luna, Mar y Tierra) en Mareazul, Playa del Carmen. Reemplaza el sitio de Wix. Está en español de México.
