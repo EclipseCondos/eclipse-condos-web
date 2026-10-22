@@ -2,6 +2,7 @@
   "name": "eclipse-condos-web",
   "version": "1.0.0",
   "private": true,
+  "engines": {"node": ">24.0.0 <25.0.0"},
   "scripts": {
     "dev": "cd apps/frontend && next dev",
     "build": "cd apps/frontend && next build",
@@ -18,8 +19,9 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.14",
+    "@tailwindcss/postcss": "^4.3.3",
+    "autoprefixer": "^10.6.1",
     "postcss": "^8.4.24",
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^4.3.3"
   }
 }

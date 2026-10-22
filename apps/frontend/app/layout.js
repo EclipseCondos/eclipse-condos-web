@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import Navbar from '@/components/Navbar/Navbar';
 import TitleUpdater from '@/components/TitleUpdater';
+import VideoFondo from '@/components/VideoFondo/VideoFondo';
 import styles from '@/styles/Home/home.module.css';
 
 export const viewport = {
@@ -49,20 +50,7 @@ export default function RootLayout({ children }) {
       <body>
         <TitleUpdater />
         <Navbar />
-        {/* Video de fondo optimizado */}
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className={styles.homeVideo}
-                poster="/images/condos/video-poster.jpg" // Imagen de respaldo
-            >
-                <source src="/videos/mareazulbackgroundvideo.mp4" type="video/mp4" />
-                <source src="/videos/mareazulbackgroundvideo.MOV" type="video/quicktime" />
-                Tu navegador no soporta el elemento video.
-            </video>
+        <VideoFondo className={styles.homeVideo} />
         <main>{children}</main>
       </body>
     </html>

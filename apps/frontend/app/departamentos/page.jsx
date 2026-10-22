@@ -3,58 +3,20 @@ import React from 'react';
 import Link from 'next/link';
 import { usePageTitle } from '../../src/hooks/usePageTitle';
 import styles from '@/styles/Departamentos.module.css';
+import { departamentos } from '@/data/departamentos';
+
+// Fondo de cada tarjeta del listado
+const colores = {
+  luna: 'linear-gradient(135deg, #1e293b, #334155)',
+  sol: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
+  mar: 'linear-gradient(135deg, #0ea5e9, #0284c7)',
+  tierra: 'linear-gradient(135deg, #059669, #047857)',
+  arena: 'linear-gradient(135deg, #d97706, #b45309)'
+};
 
 const DepartamentosPage = () => {
   // Usar el hook para manejar el título automáticamente
   usePageTitle();
-
-  const departamentos = [
-    {
-      id: 'luna',
-      name: 'Eclipse Luna',
-      description: 'Elegancia nocturna con vistas espectaculares al mar',
-      route: '/departamentos/eclipse-luna',
-      icon: '🌙',
-      color: 'linear-gradient(135deg, #1e293b, #334155)',
-      accent: '#60a5fa'
-    },
-    {
-      id: 'sol',
-      name: 'Eclipse Sol',
-      description: 'Energía radiante y espacios llenos de luz natural',
-      route: '/departamentos/eclipse-sol',
-      icon: '☀️',
-      color: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
-      accent: '#f97316'
-    },
-    {
-      id: 'mar',
-      name: 'Eclipse Mar',
-      description: 'Serenidad costera con acceso directo a la playa',
-      route: '/departamentos/eclipse-mar',
-      icon: '🌊',
-      color: 'linear-gradient(135deg, #0ea5e9, #0284c7)',
-      accent: '#06b6d4'
-    },
-    {
-      id: 'tierra',
-      name: 'Eclipse Tierra',
-      description: 'Conexión natural con jardines y espacios verdes',
-      route: '/departamentos/eclipse-tierra',
-      icon: '🌿',
-      color: 'linear-gradient(135deg, #059669, #047857)',
-      accent: '#10b981'
-    },
-    {
-      id: 'arena',
-      name: 'Eclipse Arena',
-      description: 'Calidez y confort en armonía con la naturaleza',
-      route: '/departamentos/eclipse-arena',
-      icon: '🏖️',
-      color: 'linear-gradient(135deg, #d97706, #b45309)',
-      accent: '#ea580c'
-    }
-  ];
 
   return (
     <div className={styles.departamentosPage}>
@@ -94,19 +56,19 @@ const DepartamentosPage = () => {
                   </div>
                 </div>
                 <div className={styles.locationItem}>
-                  <span className={styles.locationIcon}>🌴</span>
+                  <span className={styles.locationIcon}>🛋️</span>
                   <div>
-                    <h3>Entorno Natural</h3>
-                    <p>Rodeado de vegetación tropical y cenotes</p>
+                    <h3>Entorno Moderno/natural</h3>
+                    <p>Diseño contemporáneo con acabados de lujo y elementos naturales</p>
                   </div>
                 </div>
               </div>
             </div>
             <div className={styles.mapContainer}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.1234567890123!2d-87.0739!3d20.6296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e59cf3b1a2345%3A0x123456789abcdef0!2sMareazul%2C%20Playa%20del%20Carmen%2C%20Q.R.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2639.9246178215153!2d-87.04926691261365!3d20.65259911468917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e5d234b469471%3A0xf5fa001aeae37751!2sMareazul%20Vacation%20Rentals%20Riviera%20Maya!5e0!3m2!1sen!2sus!4v1766037831513!5m2!1sen!2sus"
                 width="100%"
-                height="400"
+                height="500"
                 style={{ border: 0, borderRadius: '15px' }}
                 allowFullScreen=""
                 loading="lazy"
@@ -128,15 +90,15 @@ const DepartamentosPage = () => {
           
           <div className={styles.departmentsGrid}>
             {departamentos.map((depto) => (
-              <Link href={depto.route} key={depto.id} className={styles.departmentCard}>
-                <div 
+              <Link href={`/departamentos/${depto.slug}`} key={depto.slug} className={styles.departmentCard}>
+                <div
                   className={styles.cardBackground}
-                  style={{ background: depto.color }}
+                  style={{ background: colores[depto.carpeta] }}
                 ></div>
                 <div className={styles.cardContent}>
-                  <div className={styles.cardIcon}>{depto.icon}</div>
-                  <h3 className={styles.cardTitle}>{depto.name}</h3>
-                  <p className={styles.cardDescription}>{depto.description}</p>
+                  <div className={styles.cardIcon}>{depto.icono}</div>
+                  <h3 className={styles.cardTitle}>{depto.nombre}</h3>
+                  <p className={styles.cardDescription}>{depto.descripcion}</p>
                   <div className={styles.cardButton}>
                     <span>Explorar</span>
                     <span className={styles.arrow}>→</span>
@@ -197,7 +159,7 @@ const DepartamentosPage = () => {
                 <span>Ver Preguntas Frecuentes</span>
                 <span className={styles.buttonIcon}>❓</span>
               </Link>
-              <Link href="/about-us" className={styles.secondaryButton}>
+              <Link href="/FAQ" className={styles.secondaryButton}>
                 <span>Conocer el Equipo</span>
               </Link>
             </div>

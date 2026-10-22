@@ -1,9 +1,26 @@
 /* Importar Futura Light desde Google Fonts como fallback */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap')
+layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 :root {
   /* Pastel palette for timeline years */
@@ -34,10 +51,10 @@ body {
   margin: 0;
   font-family: Futura, "Futura Light", Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  overflow-x: hidden; /* Prevenir scroll horizontal completamente */
-  overflow-y: auto; /* Permitir scroll vertical normal */
+  /* clip en vez de hidden y sin height fija: así solo la ventana hace scroll
+     (window.scrollTo, restauración del scroll y position: sticky funcionan) */
+  overflow-x: clip; /* Prevenir scroll horizontal completamente */
   width: 100vw; /* Solución temporal que funciona */
-  height: 100vh; /* Usar viewport height para garantizar altura completa */
   min-width: 100vw; /* Garantizar ancho mínimo */
   min-height: 100vh; /* Garantizar altura mínima */
   /* Prevenir arrastre y bounce en móviles */
@@ -64,7 +81,7 @@ main {
   margin: 0; /* Eliminar márgenes */
   padding: 0; /* Eliminar padding */
   position: relative; /* Posicionamiento fijo */
-  overflow-x: hidden; /* Prevenir scroll horizontal */
+  overflow-x: clip; /* Prevenir scroll horizontal sin romper position: sticky */
 }
 
 a {
@@ -92,6 +109,12 @@ body {
   touch-action: pan-y; /* Solo permitir scroll vertical */
   -webkit-user-select: none;
   user-select: none;
+}
+
+/* Todo el contenido va delante del video de fondo fijo (.homeVideo, z-index 0) */
+main {
+  position: relative;
+  z-index: 1;
 }
 
 /* Estilo específico para el contenedor del video de fondo */

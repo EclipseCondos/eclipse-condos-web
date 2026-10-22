@@ -108,10 +108,13 @@ Las issues pueden agregar criterios de rechazo propios.
 
 Un hito se da por terminado solo cuando se cumple todo lo de su lista. Si una issue del hito no se hace, se mueve de hito de forma explícita, no se deja abierta.
 
-### Hito 1 · Reemplazo de Wix (31 oct 2026)
+### Hito 1 · Reemplazo de Wix (14 nov 2026)
+
+Incluye la migración de diseño: el sitio se lanza ya con el lenguaje visual nuevo (Liquid Glass).
 
 - [ ] Todas las issues del hito están cerradas o movidas a otro hito con una nota del porqué.
 - [ ] El sitio nuevo tiene todo lo que tenía Wix: Inicio, 5 departamentos con galería, Amenidades, FAQ y enlace a Instagram.
+- [ ] Todas esas vistas y el navbar usan el diseño nuevo; ninguna queda con el estilo viejo.
 - [ ] Los 5 botones de reserva abren su anuncio correcto de Airbnb.
 - [ ] Todas las URLs del sitio de Wix responden 301 a su equivalente nuevo.
 - [ ] La vista previa en un subdominio se revisó con el cliente y la aprobó antes de cambiar el DNS.
@@ -119,20 +122,26 @@ Un hito se da por terminado solo cuando se cumple todo lo de su lista. Si una is
 - [ ] No hay 404 internos ni recursos faltantes en la consola.
 - [ ] El plan de Wix se da de baja solo después de que el dominio ya sirve el sitio nuevo.
 
-### Hito 2 · Disponibilidad desde Airbnb (iCal) (20 nov 2026)
+### Hito 2 · Disponibilidad desde Airbnb (iCal) (28 nov 2026)
 
 - [ ] Cada uno de los 5 departamentos muestra su disponibilidad leída del calendario iCal de su anuncio.
 - [ ] Si la lectura de un calendario falla, ese departamento no muestra fechas como disponibles.
 - [ ] La página indica cuándo se actualizó la disponibilidad por última vez.
 - [ ] El sitio sigue sin aceptar reservas: el botón lleva a Airbnb.
 
-### Hito 3 · Reservaciones y panel de administrador (18 dic 2026)
+### Hito 3 · Después del lanzamiento (4 dic 2026)
+
+Pendientes P2 que no bloquean el hito 1: limpieza, lint, animaciones y seguridad no bloqueante. Se trabaja en paralelo con el hito 2 y se cierra antes de empezar el hito 4, que maneja datos de huéspedes.
+
+- [ ] Todas las issues del hito están cerradas o movidas a otro hito con una nota del porqué.
+
+### Hito 4 · Reservaciones y panel de administrador (18 dic 2026)
 
 - [ ] El cliente entra al panel con su propia cuenta; nadie más puede ver los datos de huéspedes.
 - [ ] Las reservaciones del Excel actual están migradas y el cliente confirmó que coinciden.
 - [ ] El cliente usó el panel en lugar del Excel durante al menos una semana sin volver al Excel.
 
-### Hito 4 · Reserva directa con pagos (sin fecha)
+### Hito 5 · Reserva directa con pagos (sin fecha)
 
 No empieza hasta que el cliente lo pida y se haya decidido un channel manager para sincronizar con Airbnb en los dos sentidos. Sus criterios de salida se escriben al abrirlo.
 
@@ -143,7 +152,7 @@ Restricciones del negocio que el código tiene que respetar. Si una regla cambia
 | # | Regla |
 |---|---|
 | RN-1 | Eclipse Condos tiene exactamente 5 departamentos en Mareazul, Playa del Carmen: Arena, Sol, Luna, Mar y Tierra. Toda lista, menú o sitemap muestra los 5. |
-| RN-2 | Hasta el hito 4, el sitio no toma reservas ni pagos: reservar siempre lleva al anuncio de Airbnb del departamento, en una pestaña nueva. |
+| RN-2 | Hasta el hito 5, el sitio no toma reservas ni pagos: reservar siempre lleva al anuncio de Airbnb del departamento, en una pestaña nueva. |
 | RN-3 | Cada departamento enlaza a su propio anuncio. IDs de Airbnb verificados el 1 oct 2026: Arena `1551031977485342260`, Sol `51634042`, Luna `53782006`, Mar `926939128885187909`, Tierra `938736936525125853`. |
 | RN-4 | La única red social oficial es Instagram: `instagram.com/eclipsecondos/`. No se agregan íconos de redes que no existan. |
 | RN-5 | El sitio está en español de México (`lang="es"`, `locale: es_MX`). |

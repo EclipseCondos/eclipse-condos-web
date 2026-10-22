@@ -3,6 +3,9 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
+  // Solo en desarrollo: permite abrir el servidor desde el teléfono en la red local
+  // (http://<IP de la computadora>:3000). Si cambia la IP, actualízala aquí.
+  allowedDevOrigins: ['192.168.1.61'],
   turbopack: {}, // provide an explicit turbopack config to allow using a custom webpack config
   
   // Headers optimizados para archivos multimedia

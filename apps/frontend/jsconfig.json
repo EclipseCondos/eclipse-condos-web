@@ -5,7 +5,9 @@
     "paths": {
       "@/*": ["./(pages)*"],
       "@/components/*": ["./src/components/*"],
+      "@/data/*": ["./src/data/*"],
       "@/hooks/*": ["./src/hooks/*"],
+      "@/lib/*": ["./src/lib/*"],
       "@/services/*": ["./src/services/*"],
       "@/styles/*": ["./styles/*"],
       "p/*": ["./public/*"],
