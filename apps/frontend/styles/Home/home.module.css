@@ -22,13 +22,15 @@
 
 /* Video de fondo optimizado */
 .homeVideo {
-  position: absolute;
+  /* Fijo en la ventana: no se mueve al hacer scroll y queda detrás de <main> (globals.css) */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  height: 100lvh; /* iOS: cubre también cuando se esconde la barra de Safari */
   object-fit: cover;
-  z-index: 1;
+  z-index: 0;
   /* Mejoras de rendimiento */
   will-change: transform;
   backface-visibility: hidden;
