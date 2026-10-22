@@ -1,0 +1,21 @@
+/* Grupo flotante de WhatsApp e Instagram (los botones son BotonLiquido).
+   Debajo del navbar (z-index 999 a 1003) para que el menú los tape. */
+.redes {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* En el teléfono, las casas tienen el botón "Reservar" fijo abajo a todo lo ancho
+   (Casa.module.css, mismo corte de 760px): los flotantes van por encima de él */
+@media (max-width: 760px) {
+  .redes {
+    bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+    gap: 10px;
+    --tam-gota: 48px;
+  }
+}

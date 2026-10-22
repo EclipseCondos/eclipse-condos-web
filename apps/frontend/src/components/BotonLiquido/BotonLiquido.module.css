@@ -1,0 +1,89 @@
+/* Gota de agua / lente: casi sin color propio. Lo de atrás se ve claro (desenfoque
+   mínimo), más saturado y brillante, como a través de agua. La forma la dan la luz:
+   borde, luz que entra arriba a la izquierda, reflejo abajo a la derecha y un destello.
+   Liquid Glass de la marca: la skill de diseño prohíbe vidrio, sombras y degradados,
+   aquí se usan a propósito (taste-skill-ignore en cada línea). */
+.gota {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  /* El tamaño lo puede fijar quien la usa con --tam-gota */
+  width: var(--tam-gota, 52px);
+  height: var(--tam-gota, 52px);
+  border-radius: 50%;
+  overflow: hidden;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(2px) saturate(190%) brightness(1.1); /* taste-skill-ignore: Liquid Glass de la marca */
+  backdrop-filter: blur(2px) saturate(190%) brightness(1.1); /* taste-skill-ignore: Liquid Glass de la marca */
+  box-shadow: /* taste-skill-ignore: la gota se dibuja con luz */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4), /* taste-skill-ignore: borde de luz de la gota */
+    inset 3px 4px 6px rgba(255, 255, 255, 0.5), /* taste-skill-ignore: luz que entra arriba a la izquierda */
+    inset -4px -5px 9px rgba(255, 255, 255, 0.22), /* taste-skill-ignore: reflejo dentro de la gota */
+    inset 0 -8px 14px rgba(0, 0, 0, 0.08), /* taste-skill-ignore: volumen */
+    0 8px 18px rgba(0, 0, 0, 0.2); /* taste-skill-ignore: sombra de la gota sobre la superficie */
+  transition: transform 420ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Destello: la ventana reflejada en la gota */
+.gota::before {
+  content: '';
+  position: absolute;
+  top: 11%;
+  left: 19%;
+  width: 40%;
+  height: 24%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%); /* taste-skill-ignore: destello de la gota */
+  transform: rotate(-32deg);
+  pointer-events: none;
+}
+
+/* Luz concentrada abajo, como la que junta una gota sobre la mesa */
+.gota::after {
+  content: '';
+  position: absolute;
+  right: 17%;
+  bottom: 9%;
+  width: 34%;
+  height: 16%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 70%); /* taste-skill-ignore: reflejo de la gota */
+  transform: rotate(-32deg);
+  pointer-events: none;
+}
+
+/* El ícono, blanco con una sombra fina: se lee sobre el video y sobre los tonos claros */
+.gota > svg {
+  position: relative;
+  z-index: 1;
+  width: 46%;
+  height: 46%;
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.55)); /* taste-skill-ignore: legibilidad del ícono sobre fondos claros */
+}
+
+.gota:hover {
+  transform: scale(1.07);
+}
+
+/* Al tocarla se aplasta y rebota, como un líquido */
+.gota:active {
+  transform: scale(1.08, 0.9);
+  transition-duration: 120ms;
+}
+
+.gota:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(16, 24, 26, 0.6); /* taste-skill-ignore: segundo anillo de foco para fondos claros */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gota,
+  .gota:hover,
+  .gota:active {
+    transition: none;
+    transform: none;
+  }
+}

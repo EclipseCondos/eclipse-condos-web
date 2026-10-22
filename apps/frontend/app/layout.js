@@ -2,6 +2,7 @@ import '@/styles/globals.css';
 import Navbar from '@/components/Navbar/Navbar';
 import TitleUpdater from '@/components/TitleUpdater';
 import VideoFondo from '@/components/VideoFondo/VideoFondo';
+import Redes from '@/components/Redes/Redes';
 import styles from '@/styles/Home/home.module.css';
 
 export const viewport = {
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <VideoFondo className={styles.homeVideo} />
         <main>{children}</main>
+        <Redes />
       </body>
     </html>
   )

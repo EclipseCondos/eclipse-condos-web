@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { usePageTitle } from '../../src/hooks/usePageTitle';
 import styles from './FAQ.module.css';
+import { departamentos } from '@/data/departamentos';
+import { contacto } from '@/data/contacto';
 
 const faqData = [
     {
@@ -165,75 +167,37 @@ const faqData = [
 
 const categories = ["Todos", "Departamentos", "Políticas", "Servicios", "Ubicación", "Amenidades"];
 
-// Opciones de contacto específicas por departamento
 const generalContactOptions = [
   {
-    id: 1,
-    type: "Airbnb",
-    name: "Consultas por Mensaje",
+    id: 'whatsapp',
+    name: "Consultas por WhatsApp",
     description: "Para preguntas sobre Eclipse Condos",
-    link: "https://wa.me/5215551234567?text=Hola, tengo una pregunta sobre Eclipse Condos",
+    link: `${contacto.whatsapp}?text=${encodeURIComponent('Hola, tengo una pregunta sobre Eclipse Condos')}`,
     icon: "💬",
-    color: "Airbnb"
+    color: "whatsapp",
+    accion: "Chatear"
   },
   {
-    id: 2,
-    type: "Correo",
+    id: 'correo',
     name: "Consultas por correo",
     description: "Para preguntas sobre Eclipse Condos",
-    link: "mailto:eclipsecondominios@gmail.com",
+    link: `mailto:${contacto.correo}`,
     icon: "📧",
-    color: "mail"
+    color: "mail",
+    accion: "Escribir"
   }
 ];
 
-const apartmentOptions = [
-  {
-    id: 1,
-    type: "airbnb",
-    name: "Departamento Arena",
-    description: "2-4 personas • Vista al jardín",
-    link: "http://airbnb.com/h/casaeclipsedearena", // Cambiar por el link real
-    icon: "🏖️",
-    color: "arena"
-  },
-  {
-    id: 2,
-    type: "airbnb",
-    name: "Departamento Luna",
-    description: "2-4 personas • Vista al mar",
-    link: "http://airbnb.com/h/casaeclipsedeluna", // Cambiar por el link real
-    icon: "🌙",
-    color: "luna"
-  },
-  {
-    id: 3,
-    type: "airbnb",
-    name: "Departamento Sol",
-    description: "4-6 personas • Terraza amplia",
-    link: "http://airbnb.com/h/casaeclipsedesol", // Cambiar por el link real
-    icon: "☀️",
-    color: "sol"
-  },
-  {
-    id: 4,
-    type: "airbnb",
-    name: "Departamento Mar",
-    description: "2-4 personas • Frente al océano",
-    link: "http://airbnb.com/h/casaeclipsedemar", // Cambiar por el link real
-    icon: "🌊",
-    color: "mar"
-  },
-  {
-    id: 5,
-    type: "airbnb",
-    name: "Departamento Tierra",
-    description: "6-8 personas • Espacios amplios",
-    link: "http://airbnb.com/h/casaeclipsedetierra", // Cambiar por el link real
-    icon: "🌿",
-    color: "tierra"
-  }
-];
+// Una tarjeta por casa, con su anuncio y su capacidad de departamentos.js (RN-3 y RN-6)
+const apartmentOptions = departamentos.map((d) => ({
+  id: d.slug,
+  name: d.nombre,
+  description: d.capacidad,
+  link: d.airbnb,
+  icon: d.icono,
+  color: d.carpeta,
+  accion: "Ver en Airbnb"
+}));
 
 const FAQ = () => {
     const [selectedCategory, setSelectedCategory] = useState("Todos");
@@ -354,7 +318,7 @@ const FAQ = () => {
                                         <h4 className={styles.cardTitle}>{option.name}</h4>
                                         <p className={styles.cardDescription}>{option.description}</p>
                                         <span className={styles.cardAction}>
-                                            {option.type === 'whatsapp' ? 'Chatear' : 'Ver en Airbnb'}
+                                            {option.accion}
                                         </span>
                                     </div>
                                 </a>
@@ -382,7 +346,7 @@ const FAQ = () => {
                                         <h4 className={styles.cardTitle}>{option.name}</h4>
                                         <p className={styles.cardDescription}>{option.description}</p>
                                         <span className={styles.cardAction}>
-                                            {option.type === 'whatsapp' ? 'Chatear' : 'Ver en Airbnb'}
+                                            {option.accion}
                                         </span>
                                     </div>
                                 </a>
