@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import Navbar from '@/components/Navbar/Navbar';
 import TitleUpdater from '@/components/TitleUpdater';
+import VideoFondo from '@/components/VideoFondo/VideoFondo';
 import styles from '@/styles/Home/home.module.css';
 
 export const viewport = {
@@ -49,19 +50,7 @@ export default function RootLayout({ children }) {
       <body>
         <TitleUpdater />
         <Navbar />
-        {/* Video de fondo optimizado */}
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                poster="/videos/mareazul-poster.webp"
-                className={styles.homeVideo}
-            >
-                {/* H.264 a 720p sin audio: lo reproduce cualquier navegador (el original era HEVC de 31 MB) */}
-                <source src="/videos/mareazul-720.mp4" type="video/mp4" />
-            </video>
+        <VideoFondo className={styles.homeVideo} />
         <main>{children}</main>
       </body>
     </html>

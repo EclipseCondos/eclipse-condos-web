@@ -111,6 +111,12 @@ body {
   user-select: none;
 }
 
+/* Todo el contenido va delante del video de fondo fijo (.homeVideo, z-index 0) */
+main {
+  position: relative;
+  z-index: 1;
+}
+
 /* Estilo específico para el contenedor del video de fondo */
 .video-background-container {
   position: fixed !important;

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import styles from '@/styles/Casa.module.css';
+import VideoFondo from '@/components/VideoFondo/VideoFondo';
 
 // Recorrido por la casa: la foto del área activa y, en un panel, flechas para
 // cambiar de área y la lista completa. En escritorio el panel va al lado; en el
@@ -77,9 +78,7 @@ export default function Recorrido({ areas, nombre }) {
   return (
     <section className={styles.recorrido} aria-labelledby="recorrido-titulo">
       {/* De fondo, el video de Mareazul bajo el color de la casa */}
-      <video className={styles.recorridoVideo} autoPlay muted loop playsInline preload="metadata" poster="/videos/mareazul-poster.webp" aria-hidden="true">
-        <source src="/videos/mareazul-720.mp4" type="video/mp4" />
-      </video>
+      <VideoFondo className={styles.recorridoVideo} aria-hidden="true" />
       <div className={styles.cabeza}>
         <h2 id="recorrido-titulo" className={styles.recorridoTitulo} data-reveal>Recorre la casa</h2>
         <div className={styles.visor}>
